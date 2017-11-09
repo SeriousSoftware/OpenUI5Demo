@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
 
 @JSGlobal("sap.ui.core.Core")
 @js.native
-class Core() extends BaseObject {
+class Core extends BaseObject {
 //  def applyChanges(): Unit = js.native
   def applyTheme(sThemeName: String, sThemeBaseUrl: String = ""): Unit = js.native
 //  def attachControlEvent(fnFunction: js.Function1[Event[EventProps], Unit], oListener: Object): Unit = js.native

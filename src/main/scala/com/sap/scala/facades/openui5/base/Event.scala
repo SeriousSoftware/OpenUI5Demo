@@ -20,11 +20,11 @@ import scala.scalajs.js.annotation.JSGlobal
 @JSGlobal("sap.ui.base.Event")
 @js.native
 class Event[+EP <: EventProps]() extends BaseObject {
-  def cancelBubble(): Unit = js.native
-  def getId(): String = js.native
+  def cancelBubble()             : Unit       = js.native
+  def getId()                    : String     = js.native
   def getParameter(sName: String): js.Dynamic = js.native
-  def getParameters(): EP = js.native
-  def getSource() : js.Any = js.native
+  def getParameters()            : EP         = js.native
+  def getSource()                : js.Any     = js.native
 }
 
 
