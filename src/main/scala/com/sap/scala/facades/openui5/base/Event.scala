@@ -29,7 +29,7 @@ class Event[+EP <: EventProps]() extends BaseObject {
 
 
 object Event {
-  // TODO: I believe `js.Function1[Event, Unit]` not the best choice that's
+  // TODO: I believe `js.Function1[Event, Unit]` not the best choice
   // because js.Function extends js.Any which causes warning "Members of
   // traits, classes and objects extending js.Any may only contain members that
   // call js.native. This will be enforced in 1.0." on every usage attempt

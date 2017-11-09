@@ -12,8 +12,8 @@ import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
 @JSGlobal("sap.m.App")
 @js.native
 class App() extends NavContainer {
-  def attachOrientationChange(oData: Object, fnFunction: js.Function1[Event[EventProps], Unit], oListener: Object): this.type = js.native
-  def detachOrientationChange(fnFunction: js.Function1[Event[EventProps], Unit], oListener: Object): this.type = js.native
+//  def attachOrientationChange(oData: Object, fnFunction: js.Function1[Event[EventProps], Unit], oListener: Object): this.type = js.native
+//  def detachOrientationChange(fnFunction: js.Function1[Event[EventProps], Unit], oListener: Object): this.type = js.native
 //  def extend(sClassName: String, oClassInfo: Object, FNMetaImpl: js.Function1[Event[EventProps], Unit]): js.Function1[Event[EventProps], Unit] = js.native
   def fireOrientationChange(mParameters: Object): this.type = js.native
   def getBackgroundColor(): String = js.native

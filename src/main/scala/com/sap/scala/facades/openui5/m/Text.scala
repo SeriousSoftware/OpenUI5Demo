@@ -12,7 +12,7 @@ import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
 @JSGlobal("sap.m.Text")
 @js.native
 class Text() extends Control {
-  def bindText(oBindingInfo: Object): this.type = js.native
+  def bindText(oBindingInfo: BindingInfo): this.type = js.native
 //  def clampHeight(oDomRef: /*TODO Type: 'HTMLElement' not found.*/): /*TODO Type: 'Number' not found.*/ = js.native
 //  def clampText(oDomRef: /*TODO Type: 'HTMLElement' not found.*/, iStartPos: /*TODO Type: 'number' not found.*/, iEndPos: /*TODO Type: 'number' not found.*/): /*TODO Type: 'number' not found.*/ | /*TODO Type: 'undefined' not found.*/ = js.native
 //  def extend(sClassName: String, oClassInfo: Object, FNMetaImpl: js.Function1[Event[EventProps], Unit]): js.Function1[Event[EventProps], Unit] = js.native

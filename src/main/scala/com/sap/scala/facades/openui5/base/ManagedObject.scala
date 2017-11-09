@@ -25,7 +25,7 @@ class ManagedObject() extends EventProvider {
   def bindAggregation(sName: String, oBindingInfo: Object): this.type = js.native
   def bindContext(sPath: String): this.type = js.native
   def bindObject(vPath: String | Object, mParameters: Object): this.type = js.native
-  def bindProperty(sName: String, oBindingInfo: Object): this.type = js.native
+  def bindProperty(sName: String, oBindingInfo: BindingInfo): this.type = js.native
 //  def clone(sIdSuffix: String, aLocalIds: /*TODO Type: 'string[]' not found.*/, oOptions: /*TODO Type: 'Object' not found.*/, cloneChildren: Boolean, cloneBindings: Boolean): this.type = js.native
   def create(vData: this.type | Object, oKeyInfo: Object, oScope: Object): Unit = js.native
   def destroy(bSuppressInvalidate: Boolean): Unit = js.native

@@ -1,4 +1,3 @@
-
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.{EnabledProp, TextProp}
