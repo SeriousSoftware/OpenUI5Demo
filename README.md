@@ -13,3 +13,12 @@ Certain generated façade files needed to be heavily modified or even rewritten 
 * Simplify the coding down to the minimum required by this application
 * Just get it to compile!
 * Account for the fact that certain JavaScript function parameters cannot be translated into Scala.  E.G. The event properties object passed to an event handler function is completely dynamic and therefore cannot be defined in any usefully generic manner. (Hence the use of the `EventProps` object seen in the coding)
+
+## Running the demo
+
+When in development, this app uses the Scala.JS Workbench.
+
+Compile the program using `sbt ~fastOptJS` then connect your browser to `http://localhost:12345/target/scala-2.12/classes/index-dev.html`
+
+Once the Workbench has started in your browser, it should refresh each time you save your changes in IntelliJ (assuming of course that they compile!)
+ 
