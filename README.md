@@ -10,7 +10,7 @@ This sounds easy enough, but its early days and this basic demo is the first att
 
 ### OpenUI5 Façade Generator
 
-This tool is experimental!  The ScalaJS façade files it generates are known to be incomplete and will consequently require manual work before they will function correctly in your application.
+This tool is experimental!  The ScalaJS façade files it generates are known to be incomplete and will consequently require manual alteration before they will function correctly in your application.
 
 It is known that not all OpenUI5 classes, enumerations or libraries can be translated automatically into working Scala.  This is because JavaScript's dynamic typing means that under certain circumstances, it is impossible for the parser to determine what data type will be used during a function call.
 
@@ -18,15 +18,9 @@ One example of this is event handlers.  An OpenUI5 event handler function receiv
 
 Other omissions from the generated code include:
 
-* JavaScript types defined in an OpenUI5 library's `library.js` file.  At the moment, `library.js` files are not parsed by the façade generator, so widely data types such as `sap.ui.core.ID`, `sap.ui.core.CSSSIZE` or `sap.ui.layout.GridSpan` must be created manually.
+* JavaScript types defined in an OpenUI5 library's `library.js` file.  At the moment, `library.js` files are not parsed by the façade generator, so widely used data types such as `sap.ui.core.ID`, `sap.ui.core.CSSSIZE` or `sap.ui.layout.GridSpan` must be created manually.
 * No attempt has been made to create façades for JavaScript interfaces such a `sap.ui.core.ToolBar`.
 
-## IMPORTANT 
- 
-Certain generated façade files needed to be heavily modified or even rewritten in order to:
-* Simplify the coding down to the minimum required by your application
-* Just get it to compile!
-* Account for the fact that certain JavaScript function parameters cannot be translated into Scala.  E.G. The event properties object passed to an event handler function is completely dynamic and therefore cannot be defined in any usefully generic manner. (Hence the use of the `EventProps` object seen in the coding)
 
 ## Running the demo
 
