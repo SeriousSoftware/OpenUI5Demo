@@ -1,28 +1,15 @@
 package com.sap.demo
 
-import java.time.Instant
-
-import org.scalajs.dom
-
-import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
+import scala.scalajs.js.annotation.JSExportTopLevel
 
 @JSExportTopLevel("Utils")
 object Utils {
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // OpenWeather endpoint details
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   def openWeatherMapHost = "openweathermap.org"
   def openWeatherMapAPI  = "https://api." + openWeatherMapHost
-  def openWeatherMapImg  = "https://" + openWeatherMapHost
-
-  def openStreetMapHost  = "https://www.openstreetmap.org"
-  def mapBoxHost         = "https://api.tiles.mapbox.com"
-
   def weatherEndpoint    = openWeatherMapAPI + "/data/2.5/weather"
-  def searchEndpoint     = openWeatherMapAPI + "/data/2.5/find"
-  def imageEndpoint      = openWeatherMapImg + "/img/w/"
 
+  def mapBoxHost         = "https://api.tiles.mapbox.com"
   def mapBoxEndpoint     = mapBoxHost + "/v4/{id}/{z}/{x}/{y}.png"
 
   var owmQueryParams = scala.collection.mutable.Map[String,String](
@@ -36,6 +23,7 @@ object Utils {
     "access_token" -> "pk.eyJ1IjoiZmFuY2VsbHUiLCJhIjoiY2oxMHRzZm5zMDAyMDMycndyaTZyYnp6NSJ9.AJ3owakJtFAJaaRuYB7Ukw"
   )
 
+  // ASCII values of various characters
   def char_0  = 48
   def char_9  = 57
   def small_a = 97
@@ -71,23 +59,6 @@ object Utils {
   // Various string formatting functions
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  // All times returned from OpenWeather are simply UTC time stamps
-  // This does not include any time zone information!
-  def utcToDateStr(utc: Long): String = {
-    if (utc == 0)
-      "Not available"
-    else {
-      var d = Instant.ofEpochSecond(utc).toString
-
-      var year   = d.substring(0, 4)
-      var month  = d.substring(5, 7)
-      var day    = d.substring(8, 10)
-      var tempus = d.substring(11, 19)
-
-      s"$tempus on ${months(month.toInt)} ${day}${ordinalTxt(day.toInt % 10)}, $year"
-    }
-  }
-
   // All temperatures are returned in Kelvin
   def kelvinToDegStr(k: Double, min: Double, max: Double):String = {
     val variation = (max - min) / 2
@@ -117,26 +88,9 @@ object Utils {
     h + s"˚ (${compassPoints(Math.max(upper,lower))})"
   }
 
-  // Convert weather icon code into an actual image
+  // Add the appropriate unit string after various values
   def formatVisibility(v: Int): String    = v + "m"
   def formatVelocity(v: Double): String   = v + "m/s"
   def formatPercentage(p: Double): String = p + "%"
   def formatPressure(p: Double): String   = p + " mBar"
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  // Builds and opens an XHR request to a given endpoint
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  def buildXhrRequest(userInput: String, targetEndpoint: String): dom.XMLHttpRequest = {
-    owmQueryParams += ("q" -> userInput)
-
-    val queryStr = (
-      for (p <- owmQueryParams.keys)
-        yield s"$p=${owmQueryParams.get(p).get}"
-      ).mkString("?", "&", "")
-
-    val xhr = new dom.XMLHttpRequest
-    xhr.open("GET", targetEndpoint + queryStr)
-
-    xhr
-  }
 }

@@ -30,6 +30,7 @@ abstract class Element extends ManagedObject {
   def enhanceAccessibilityState(oElement: Element, mAriaProps: js.Dictionary[js.Any]): js.Object = js.native
   def exit(): Unit = js.native
   def findElements(bRecursive: Boolean): js.Array[Element] = js.native
+  def fireEvenet(sEventId: String, mParameters: js.Dictionary[js.Any]): Element = js.native
   def fireEvent(sEventId: String, mParameters: js.Dictionary[js.Any]): Element = js.native
   def focus(): Unit = js.native
   def getCustomData(): js.Array[CustomData] = js.native

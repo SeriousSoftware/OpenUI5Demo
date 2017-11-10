@@ -138,11 +138,34 @@ object OpenUI5Demo {
 
       goBtn.setLayoutData(new GridElementData().setHCells("1"))
 
-      cityNameInput.setPlaceholder("Enter at least 4 characters...")
+      cityNameInput.setPlaceholder("Enter a city name")
       cityNameInput.setValue(owmQueryParams.get("q").get)
 
 
-      val cityNameLabel = new Label().setText("City name").setLabelFor(cityNameInput.getId()).addStyleClass("sapUiSmallMargin")
+      // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      // Is there already a form in the DOM?  If so, its left over from the last
+      // time the program was run in test mode.
+      // TODO This code doesn't work reliably...
+      // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      try {
+        if (uiCore.byId(weatherDivId).isDefined) {
+          println("Destroying contents of first 'weatherDiv' form.")
+          uiCore.byId(weatherDivId).get.destroyDependents()
+        }
+      }
+      catch {
+        case e: NoSuchElementException => println("That's weird - can't find weatherDiv.")
+      }
+
+      // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      // Create form
+      // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      val form = new Form().
+        setEditable(true).
+        addStyleClass("sapUiResponsiveMargin").
+        setLayout(new GridLayout().setSingleColumn(true)).
+        setWidth("auto").
+        setTitle("Weather Report")
 
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       // Check for missing API Key.
@@ -152,80 +175,72 @@ object OpenUI5Demo {
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       def apiKeyPresent = isHexStr(owmQueryParams.get("apikey").get)
 
+      // Has the user created their own API Key?
       if (apiKeyPresent) {
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        // Button onPress event handler
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // Yup, so define the Button onPress event handler
         val onButtonPress: js.Function1[Event[EventProps], Unit] =
-        (event: Event[EventProps]) => {
-          owmQueryParams += ("q" -> cityNameInput.getValue)
+          (event: Event[EventProps]) => {
+            println(s"User entered '${cityNameInput.getValue}'")
+            owmQueryParams += ("q" -> cityNameInput.getValue)
 
-          val queryStr = (
-            for (p <- owmQueryParams.keys)
-              yield s"$p=${owmQueryParams.get(p).get}"
-            ).mkString("?", "&", "")
+            val queryStr = (
+              for (p <- owmQueryParams.keys)
+                yield s"$p=${owmQueryParams.get(p).get}"
+              ).mkString("?", "&", "")
 
-          val xhr = new dom.XMLHttpRequest
-          xhr.open("GET", weatherEndpoint + queryStr)
+            val xhr = new dom.XMLHttpRequest
+            xhr.open("GET", weatherEndpoint + queryStr)
 
-          xhr.onload = (e: dom.Event) => {
-            val data = js.JSON.parse(xhr.responseText)
+            xhr.onload = (e: dom.Event) => {
+              val data = js.JSON.parse(xhr.responseText)
 
-            // Delete any previous grid that might exist
-            val oldGrid = uiCore.byId(s"__grid$gridCounter")
+              // Delete any previous grid that might exist
+              val oldGrid = uiCore.byId(s"__grid$gridCounter")
 
-            if (oldGrid.isDefined) {
-              oldGrid.get.destroy()
-              gridCounter += 1
+              if (oldGrid.isDefined) {
+                oldGrid.get.destroy()
+                gridCounter += 1
+              }
+
+              // Can the city be found?
+              if (data.cod.toString == "404") {
+                // Nope, so show error message
+                MessageToast.show(s"City ${cityNameInput.getValue} not found")
+              }
+              else {
+                val report = new WeatherReportBuilder(data)
+                buildWeatherReport(report, 0).placeAt(weatherDivId)
+                buildSlippyMap(s"mapDiv$gridCounter", report)
+              }
             }
 
-            // Can the city be found?
-            if (data.cod.toString == "404") {
-              // Nope, so show error message
-              MessageToast.show(s"City ${cityNameInput.getValue} not found")
-            }
-            else {
-              val report = new WeatherReportBuilder(data)
-              buildWeatherReport(report, 0).placeAt(weatherDivId)
-              buildSlippyMap(s"mapDiv$gridCounter", report)
-            }
+            // Send XHR request to OpenWeather
+            xhr.send()
           }
-
-          // Send XHR request to OpenWeather
-          xhr.send()
-        }
 
         goBtn.attachPress(onButtonPress)
       }
+      else {
+        // Nope, so display a missing API key error message
+        val errMsg = new Text().setText("API Key missing.  Please register with http://openweathermap.org and create" +
+          " yourself an API key.  This key must then be entered into the source code in file Utils.scala at line 19.")
+        val feErr = new FormElement().setLabel("ERROR").addField(errMsg)
+        val fcErr = new FormContainer().addFormElement(feErr)
 
-      val fe4 = new FormElement().setLabel("Enter a city name (min 4 characters)").addField(cityNameInput)
+        form.addFormContainer(fcErr)
+      }
+
+      val fe4 = new FormElement().setLabel("City name").addField(cityNameInput)
       val fe5 = new FormElement().setLabel("").addField(goBtn)
 
       val fc4 = new FormContainer().addFormElement(fe4)
       val fc5 = new FormContainer().addFormElement(fe5)
 
-      val form = new Form().
-        setEditable(true).
-        addStyleClass("sapUiResponsiveMargin").
-        setLayout(new GridLayout().setSingleColumn(true)).
-        setWidth("auto").
-        setTitle("Weather Report UI5")
-
+      // Add contents to form and place form on the screen
       form.
         addFormContainer(fc4).
-        addFormContainer(fc5)
-
-      if (uiCore.byId(weatherDivId).isDefined) {
-        println("Destroying contents of weatherDiv")
-        uiCore.byId(weatherDivId).get.destroyDependents()
-        uiCore.byId(weatherDivId).get.addDependent(form)
-        ()
-      }
-      else {
-        println("Can't access \"weatherDiv\" using ui.getCore().byID()")
-        form.placeAt(weatherDivId)
-      }
-
+        addFormContainer(fc5).
+        placeAt(weatherDivId)
     })
   }
 }

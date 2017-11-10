@@ -2,8 +2,7 @@ package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.{EnabledProp, TextProp}
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
-import com.sap.scala.facades.openui5.core.{URI,Control}
-
+import com.sap.scala.facades.openui5.core.{Control, URI}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal
@@ -14,16 +13,15 @@ import scala.scalajs.js.annotation.JSGlobal
 @JSGlobal("sap.m.Button")
 @js.native //TODO This thing needs to be reworked...
 class Button() extends Control with TextProp with EnabledProp {
-  def attachPress(fnFunction : js.Function1[Event[EventProps], Unit])             : this.type = js.native // TODO Event Prop Type
-  def detachPress(listener: Event.Fn, context: js.UndefOr[Control] = js.undefined): Unit      = js.native
-
-  def getIcon()         : URI  = js.native
-  def setIcon(icon: URI): Unit = js.native
-
-  def setType(`type`: ButtonType): Unit       = js.native
-  def getType()                  : ButtonType = js.native
-
+  def attachPress(fnFunction : js.Function1[Event[EventProps], Unit]): this.type = js.native
+  def detachPress(listener: Event.Fn, context: js.UndefOr[Control] = js.undefined): Unit = js.native
   def firePress(): this.type = js.native
+
+  def setIcon(icon: URI): Unit = js.native
+  def getIcon(): URI = js.native
+
+  def setType(`type`: ButtonType): Unit = js.native
+  def getType(): ButtonType = js.native
 }
 
 

@@ -23,19 +23,26 @@ class Form() extends Control {
 //  def destroyToolbar(): this.type = js.native
 //  def extend(sClassName: String, oClassInfo: Object, FNMetaImpl: js.Function1[Event[EventProps], Unit]): js.Function1[Event[EventProps], Unit] = js.native
 //  def getAriaLabelledBy(): js.Array[ID] = js.native
+
   def getEditable(): Boolean = js.native
   def getFormContainers(): js.Array[FormContainer] = js.native
   def getLayout(): FormLayout = js.native
+
 //  def getMetadata(): Metadata = js.native
+
   def getTitle(): Title | String = js.native
   def getToolbar(): Toolbar = js.native
   def getWidth(): CSSSize = js.native
+
 //  def indexOfFormContainer(oFormContainer: FormContainer): Int = js.native
 //  def insertFormContainer(oFormContainer: FormContainer, iIndex: Int): this.type = js.native
 //  def removeAllAriaLabelledBy(): js.Array[ID] = js.native
+
   def removeAllFormContainers(): js.Array[FormContainer] = js.native
+
 //  def removeAriaLabelledBy(vAriaLabelledBy: Int | ID | Control): ID = js.native
 //  def removeFormContainer(vFormContainer: Int | String | FormContainer): FormContainer = js.native
+
   def setEditable(bEditable: Boolean): this.type = js.native
   def setLayout(oLayout: FormLayout): this.type = js.native
   def setTitle(vTitle: Title | String): this.type = js.native
