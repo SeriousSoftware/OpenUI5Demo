@@ -16,7 +16,8 @@ object Utils {
     "q"      -> ""
     ,"type"   -> "like"
     ,"mode"   -> "json"
-    ,"apikey" -> "<Paste your API Key value here>"
+//    ,"apikey" -> "<Paste your API Key value here>"
+    ,"apikey" -> "9ff16c79edd6ad12396c22ed8a7996ec"
   )
 
   var mbQueryParams = scala.collection.mutable.Map[String,String](
