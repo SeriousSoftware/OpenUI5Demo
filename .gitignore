@@ -8,13 +8,9 @@ target/
 lib_managed/
 src_managed/
 project/project/
-project/target/
-.history
 .cache
 .lib/
 .idea/
 
 ### Scala template
-*.class
 *.log
-

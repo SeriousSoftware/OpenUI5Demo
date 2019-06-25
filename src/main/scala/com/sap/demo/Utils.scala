@@ -6,39 +6,29 @@ import scala.scalajs.js.annotation.JSExportTopLevel
 object Utils {
   // OpenWeather endpoint details
   def openWeatherMapHost = "openweathermap.org"
-  def openWeatherMapAPI  = "https://api." + openWeatherMapHost
-  def weatherEndpoint    = openWeatherMapAPI + "/data/2.5/weather"
+  def openWeatherMapAPI = "https://api.".concat(openWeatherMapHost)
+  def weatherEndpoint   = openWeatherMapAPI.concat("/data/2.5/weather")
 
-  def mapBoxHost         = "https://api.tiles.mapbox.com"
-  def mapBoxEndpoint     = mapBoxHost + "/v4/{id}/{z}/{x}/{y}.png"
+  def mapBoxHost               = "https://api.tiles.mapbox.com"
+  def mapBoxEndpoint    = mapBoxHost.concat("/v4/{id}/{z}/{x}/{y}.png")
 
-  var owmQueryParams = scala.collection.mutable.Map[String,String](
-    "q"      -> ""
+  val owmQueryParams = scala.collection.mutable.Map[String,String](
+    "q"       -> ""
     ,"type"   -> "like"
     ,"mode"   -> "json"
 //    ,"apikey" -> "<Paste your API Key value here>"
     ,"apikey" -> "9ff16c79edd6ad12396c22ed8a7996ec"
   )
 
-  var mbQueryParams = scala.collection.mutable.Map[String,String](
+  val mbQueryParams = scala.collection.mutable.Map[String,String](
     "access_token" -> "pk.eyJ1IjoiZmFuY2VsbHUiLCJhIjoiY2oxMHRzZm5zMDAyMDMycndyaTZyYnp6NSJ9.AJ3owakJtFAJaaRuYB7Ukw"
   )
 
-  // ASCII values of various characters
-  def char_0  = 48
-  def char_9  = 57
-  def small_a = 97
-  def small_f = 102
-
-  // Inclusive "between" value check
-  def between(a: Int, b: Int) = (x: Int) => x >= a && x <= b
-
-  def isHexChar = between(small_a, small_f)
-  def isNumChar = between(char_0, char_9)
-
   // Check if a character string is a valid hex number
-  def isHexStr(s: String): Boolean = s.toLowerCase.foldLeft(true) {
-    (acc, c) => acc && (isHexChar(c) || isNumChar(c))
+  def isHexStr(s: String): Boolean = {
+    val hexSet = ('0' to '9').toSet ++ ('a' to 'f').toSet
+
+    s.toLowerCase.forall(c => hexSet contains c)
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -90,8 +80,8 @@ object Utils {
   }
 
   // Add the appropriate unit string after various values
-  def formatVisibility(v: Int): String    = v + "m"
-  def formatVelocity(v: Double): String   = v + "m/s"
+  def formatVisibility(v: Int): String    = v + " m"
+  def formatVelocity(v: Double): String   = v + " m/s"
   def formatPercentage(p: Double): String = p + "%"
-  def formatPressure(p: Double): String   = p + " mBar"
+  def formatPressure(p: Double): String   = p + " hPa"
 }

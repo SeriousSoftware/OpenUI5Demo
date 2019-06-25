@@ -86,7 +86,7 @@ object MacroGenerator {
               else
                 None
             }
-          } yield ((member, tq"$t", parentValue))
+          } yield (member, tq"$t", parentValue)
 
           val sortByMandatoryAndName =
             (tuple1: (String, c.universe.Tree, Option[c.universe.Tree]), tuple2: (String, c.universe.Tree, Option[c.universe.Tree])) =>
@@ -145,5 +145,3 @@ object MacroGenerator {
     c.Expr[Any](result)
   }
 }
-
-

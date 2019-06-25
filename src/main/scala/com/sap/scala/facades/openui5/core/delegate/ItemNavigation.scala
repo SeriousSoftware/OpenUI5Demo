@@ -28,4 +28,3 @@ class ItemNavigation() extends EventProvider {
   def setSelectedIndex(iIndex: Int): this.type = js.native
   def setTableMode(bTableMode: Boolean, bTableList: Boolean): this.type = js.native
 }
-     

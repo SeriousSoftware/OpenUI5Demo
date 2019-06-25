@@ -6,16 +6,16 @@ workbenchSettings
 
 name         := "openui5demo"
 version      := "0.1"
-scalaVersion := "2.12.2"
+scalaVersion := "2.12.8"
 
 libraryDependencies ++= Seq(
-   "org.scala-js"   %%% "scalajs-dom"       % "0.9.1"
-  ,"org.scala-js"   %%% "scalajs-java-time" % "0.2.2"
-  ,"be.doeraene"    %%% "scalajs-jquery"    % "0.9.2"
+   "org.scala-js"   %%% "scalajs-dom"       % "0.9.7"
+  ,"org.scala-js"   %%% "scalajs-java-time" % "0.2.5"
+  ,"be.doeraene"    %%% "scalajs-jquery"    % "0.9.5"
   ,"org.querki"     %%% "querki-jsext"      % "0.8"
   ,"org.scala-lang"   % "scala-reflect"     % scalaVersion.value
-  ,"com.lihaoyi"     %% "sourcecode"        % "0.1.4" // Scala-JVM
-  ,"com.lihaoyi"    %%% "sourcecode"        % "0.1.4" // Scala.js / Scala Native
+  ,"com.lihaoyi"     %% "sourcecode"        % "0.1.7" // Scala-JVM
+  ,"com.lihaoyi"    %%% "sourcecode"        % "0.1.7" // Scala.js / Scala Native
 )
 
 jsDependencies ++= Seq(
@@ -26,7 +26,7 @@ jsDependencies ++= Seq(
 // bootSnippet is used by SBT to auto-reload the web page
 bootSnippet := "OpenUI5Demo.main('weatherDiv');"
 
-updateBrowsers <<= updateBrowsers.triggeredBy(fastOptJS in Compile)
+updateBrowsers := updateBrowsers.triggeredBy(fastOptJS in Compile).value
 
 publishArtifact in packageDoc:= false
 publishArtifact in packageSrc:= false

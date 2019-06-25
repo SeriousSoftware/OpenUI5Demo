@@ -1,19 +1,16 @@
 package com.sap.demo
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
-import org.scalajs.dom
-import java.time._
-
-import com.felstar.scalajs.leaflet._
-import com.sap.scala.facades.openui5.ui
+import com.felstar.scalajs.leaflet.{L, LMapOptions, TileLayerOptions, MarkerOptions}
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core.HTML
+import com.sap.scala.facades.openui5.layout.{Grid, GridData}
 import com.sap.scala.facades.openui5.layout.form._
-import com.sap.scala.facades.openui5.layout._
 import com.sap.scala.facades.openui5.m._
+import com.sap.scala.facades.openui5.ui
+import org.scalajs.dom
 
-import scala.scalajs.js.Object
+import scala.scalajs.js
+import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 
 @JSExportTopLevel("OpenUI5Demo")
 object OpenUI5Demo {
@@ -32,7 +29,7 @@ object OpenUI5Demo {
       val map     = L.map(mapDiv, mapOpts)
 
       val queryStr = (for (p <- mbQueryParams.keys)
-        yield s"$p=${mbQueryParams.get(p).get}"
+        yield s"$p=${mbQueryParams(p)}"
         ).mkString("?", "&", "")
 
       val tileLayer = L.tileLayer(
@@ -139,7 +136,7 @@ object OpenUI5Demo {
       goBtn.setLayoutData(new GridElementData().setHCells("1"))
 
       cityNameInput.setPlaceholder("Enter a city name")
-      cityNameInput.setValue(owmQueryParams.get("q").get)
+      cityNameInput.setValue(owmQueryParams("q"))
 
 
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -154,7 +151,7 @@ object OpenUI5Demo {
         }
       }
       catch {
-        case e: NoSuchElementException => println("That's weird - can't find weatherDiv.")
+        case _: NoSuchElementException => println("That's weird - can't find weatherDiv.")
       }
 
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -173,25 +170,25 @@ object OpenUI5Demo {
       // As long as an API Key is present, assign button onclick and input field
       // onkeyup event handlers to the UI controls
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      def apiKeyPresent = isHexStr(owmQueryParams.get("apikey").get)
+      def apiKeyPresent = isHexStr(owmQueryParams("apikey"))
 
       // Has the user created their own API Key?
       if (apiKeyPresent) {
         // Yup, so define the Button onPress event handler
         val onButtonPress: js.Function1[Event[EventProps], Unit] =
-          (event: Event[EventProps]) => {
-            println(s"User entered '${cityNameInput.getValue}'")
-            owmQueryParams += ("q" -> cityNameInput.getValue)
+          (_: Event[EventProps]) => {
+            println(s"User entered '${cityNameInput.getValue()}'")
+            owmQueryParams += ("q" -> cityNameInput.getValue())
 
             val queryStr = (
               for (p <- owmQueryParams.keys)
-                yield s"$p=${owmQueryParams.get(p).get}"
+                yield s"$p=${owmQueryParams(p)}"
               ).mkString("?", "&", "")
 
             val xhr = new dom.XMLHttpRequest
             xhr.open("GET", weatherEndpoint + queryStr)
 
-            xhr.onload = (e: dom.Event) => {
+            xhr.onload = (_: dom.Event) => {
               val data = js.JSON.parse(xhr.responseText)
 
               // Delete any previous grid that might exist
@@ -205,7 +202,7 @@ object OpenUI5Demo {
               // Can the city be found?
               if (data.cod.toString == "404") {
                 // Nope, so show error message
-                MessageToast.show(s"City ${cityNameInput.getValue} not found")
+                MessageToast.show(s"City ${cityNameInput.getValue()} not found")
               }
               else {
                 val report = new WeatherReportBuilder(data)
@@ -244,5 +241,3 @@ object OpenUI5Demo {
     })
   }
 }
-
-

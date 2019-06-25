@@ -23,6 +23,5 @@ abstract class EventProvider extends js.Object {
   def getEventingParent()            : EventProvider = js.native
   def hasListeners(sEventId: String) : Boolean       = js.native
 
-  override def toString() : String = js.native
+  override def toString: String = js.native
 }
-     

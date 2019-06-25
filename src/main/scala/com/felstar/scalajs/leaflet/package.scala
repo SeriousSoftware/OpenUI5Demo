@@ -1,7 +1,6 @@
 package com.felstar.scalajs
 
 import scala.scalajs.js
-//import org.scalajs.dom._
 import scala.scalajs.js.JSConverters._
 
 package object leaflet {

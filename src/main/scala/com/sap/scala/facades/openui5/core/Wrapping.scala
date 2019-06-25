@@ -38,7 +38,7 @@ object Wrapping {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown Wrapping: $s")
   }
-  
+
   object Hard extends Wrapping {
     override private[ui] def toFacade: ui.core.Wrapping = ui.core.Wrapping.Hard
   }

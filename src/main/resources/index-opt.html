@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ScalaJS + OpenUI5 Weather Report (Full Opt)</title>
-  <meta http-equiv="cache-control" content="no-cache">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>ScalaJS + OpenUI5 Weather Report (Full Opt)</title>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-  <!-- Leaflet slippy map style sheet and library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js"></script>
+    <!-- Leaflet slippy map style sheet and library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+          integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"
+            integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
 
-  <!-- SAPUI5 library -->
-  <script id="sap-ui-bootstrap"
-    src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-    data-sap-ui-theme="sap_bluecrystal"
-    data-sap-ui-libs="sap.m, sap.ui.layout"
-    data-sap-ui-compatVersion="edge"
-    data-sap-ui-preload="async">
-  </script>
+    <!-- SAPUI5 library -->
+    <script id="sap-ui-bootstrap"
+            src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-libs="sap.m, sap.ui.layout"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-preload="async">
+    </script>
 
-  <!-- Generated ScalaJS app -->
-  <script type="text/javascript" src="../openui5demo-opt.js"></script>
+    <!-- Generated ScalaJS app -->
+    <script type="text/javascript" src="../openui5demo-opt.js"></script>
 </head>
 
-<body class="sapUiBody" >
-  <div id="weatherDiv"></div>
-  <script>
+<body class="sapUiBody">
+<div id="weatherDiv"></div>
+<script>
     OpenUI5Demo.main('weatherDiv');
-  </script>
+</script>
 </body>
 </html>

@@ -37,8 +37,7 @@ object ListItem {
     result.setKey(key)
     result.setText(text)
     result.setEnabled(enabled)
-    customData.foreach(result.addCustomData(_))
+    customData.foreach(result.addCustomData)
     result
   }
 }
-     

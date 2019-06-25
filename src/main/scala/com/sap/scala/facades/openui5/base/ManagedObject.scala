@@ -115,7 +115,7 @@ class ManagedObject() extends EventProvider {
   def setProperty(sPropertyName: String,
                   oValue: Object,
                   bSuppressInvalidate: Boolean): this.type = js.native
-  override def toString(): String = js.native
+  override def toString: String = js.native
   def unbindAggregation(sName: String,
                         bSuppressReset: Boolean): this.type = js.native
   def unbindObject(sModelName: String): this.type = js.native
@@ -131,4 +131,3 @@ class ManagedObject() extends EventProvider {
   @deprecated("Use bindElement instead.", "1.11.1")
   def unbindContext(sModelName: String): ManagedObject = js.native
 }
-     

@@ -120,4 +120,3 @@ class ListBase() extends Control {
 //  def swipeOut(oCallback: /*TODO Type: 'any' not found.*/): this.type = js.native
   def unbindItems(): this.type = js.native
 }
-     

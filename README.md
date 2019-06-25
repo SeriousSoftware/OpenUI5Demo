@@ -32,4 +32,3 @@ Compile the program using either:
 * `sbt ~fullOptJS` then point your browser to `http://localhost:12345/target/scala-2.12/classes/index-opt.html`
 
 Once the Workbench has started in your browser, the app should refresh automatically each time you save your changes in IntelliJ (assuming of course that the code compiles!)
-

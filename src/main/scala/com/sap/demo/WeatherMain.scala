@@ -5,7 +5,7 @@ import scala.scalajs.js
 // Basic atmospheric conditions:
 // o Air temperature plus optional max/min variation values
 // o Humidity
-// o Air pressure.  This is either a simple value in mBar, or it is a
+// o Air pressure.  This is either a simple value in hPa, or it is a
 //   pair of values: air pressure at sea level and air pressure at
 //   ground level
 class WeatherMain(weatherMain: js.Dynamic) {

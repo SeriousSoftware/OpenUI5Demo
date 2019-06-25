@@ -1,6 +1,6 @@
 package com.felstar.scalajs.leaflet
 
-import org.querki.jsext._
+import org.querki.jsext.{JSOptionBuilder, JSOptionSetter, OptMap,noOpts}
 import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js

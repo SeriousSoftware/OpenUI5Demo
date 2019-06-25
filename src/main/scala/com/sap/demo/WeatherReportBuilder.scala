@@ -11,7 +11,7 @@ class WeatherReportBuilder(data: js.Dynamic) {
   val coord = new Coord(data.coord)
 
   // Multiple weather conditions might be supplied for one location
-  val weatherConditions = data.weather.map { (weatherItem: js.Dynamic) =>
+  val weatherConditions = data.weather.map { weatherItem: js.Dynamic =>
     new WeatherCond(weatherItem)
   }.asInstanceOf[js.Array[WeatherCond]]
     .toSeq
@@ -23,12 +23,7 @@ class WeatherReportBuilder(data: js.Dynamic) {
   val wind = new Wind(data.wind)
 
   // Optional visibility information
-  val visibility = {
-    if (data.visibility.toString == "undefined")
-      0
-    else
-      data.visibility.asInstanceOf[Int]
-  }
+  val visibility: Int = if (data.visibility.toString == "undefined") 0 else data.visibility.asInstanceOf[Int]
 
   // Percentage cloud cover
   val clouds = data.clouds.all.asInstanceOf[Int]
