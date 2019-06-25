@@ -14,8 +14,8 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 
 @JSExportTopLevel("OpenUI5Demo")
 object OpenUI5Demo {
-  import Utils._
-
+  import Utils.{formatCoords, formatHeading, formatPercentage, formatPressure, formatVelocity,formatVisibility,
+    isHexStr, kelvinToDegStr, mapBoxEndpoint, mbQueryParams, owmQueryParams, weatherEndpoint}
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Create a slippy map of the current city and as a side-effect, directly
   // updates the DOM element received as a parameter
@@ -33,11 +33,11 @@ object OpenUI5Demo {
         ).mkString("?", "&", "")
 
       val tileLayer = L.tileLayer(
-        mapBoxEndpoint + queryStr,
-        TileLayerOptions.
-          id("mapbox.streets").
-          maxZoom(19).
-          attribution("""Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
+        mapBoxEndpoint.concat(queryStr),
+        TileLayerOptions
+          .id("mapbox.streets")
+          .maxZoom(19)
+          .attribution("""Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
                         |<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,
                         |Imagery © <a href="http://mapbox.com">Mapbox</a>""".stripMargin)
       )

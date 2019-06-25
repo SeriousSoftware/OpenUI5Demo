@@ -1,7 +1,8 @@
 package com.sap.demo
 
-import scala.scalajs.js
 import java.lang.{Long => JLong}
+
+import scala.scalajs.js
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Class initialiser extracts weather data from JSON response
@@ -11,10 +12,9 @@ class WeatherReportBuilder(data: js.Dynamic) {
   val coord = new Coord(data.coord)
 
   // Multiple weather conditions might be supplied for one location
-  val weatherConditions = data.weather.map { weatherItem: js.Dynamic =>
-    new WeatherCond(weatherItem)
-  }.asInstanceOf[js.Array[WeatherCond]]
-    .toSeq
+  val weatherConditions: Seq[WeatherCond] = data.weather.map {
+    weatherItem: js.Dynamic => new WeatherCond(weatherItem)
+  }.asInstanceOf[js.Array[WeatherCond]].toSeq
 
   // Extract basic atmospheric conditions:
   val main = new WeatherMain(data.main)
@@ -29,23 +29,11 @@ class WeatherReportBuilder(data: js.Dynamic) {
   val clouds = data.clouds.all.asInstanceOf[Int]
 
   // Optional rain and snow fall information
-  val rain = {
-    if (data.rain == null || data.rain.toString == "undefined") {
-      0.0
-    }
-    else {
-      data.rain.`3h`.asInstanceOf[Double]
-    }
-  }
+  val rain = if (data.rain == null || data.rain.toString == "undefined") 0.0
+  else data.rain.`3h`.asInstanceOf[Double]
 
-  val snow = {
-    if (data.snow == null || data.snow.toString == "undefined") {
-      0.0
-    }
-    else {
-      data.snow.`3h`.asInstanceOf[Double]
-    }
-  }
+  val snow = if (data.snow == null || data.snow.toString == "undefined") 0.0
+  else data.snow.`3h`.asInstanceOf[Double]
 
   // UTC timestamp showing when measurements were taken
   val measuredAt = JLong.parseLong(data.dt.toString)
@@ -58,10 +46,5 @@ class WeatherReportBuilder(data: js.Dynamic) {
 
   val cityName   = data.name.asInstanceOf[String]
 
-  val returnCode = {
-    if (data.cod.toString == "undefined")
-      -1
-    else
-      data.cod.asInstanceOf[Int]
-  }
+  val returnCode = if (data.cod.toString == "undefined") -1 else data.cod.asInstanceOf[Int]
 }
