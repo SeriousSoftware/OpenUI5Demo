@@ -13,8 +13,9 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 
 @JSExportTopLevel("OpenUI5Demo")
 object OpenUI5Demo {
-  import Utils.{formatCoords, formatHeading, formatPercentage, formatPressure, formatVelocity,formatVisibility,
-    isHexStr, kelvinToDegStr, mapBoxEndpoint, mbQueryParams, owmQueryParams, weatherEndpoint}
+
+  import Utils.{formatCoords, formatHeading, formatPercentage, formatPressure,
+    formatVelocity, formatVisibility, isHexStr, kelvinToDegStr, owmQueryParams, weatherEndpoint}
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Main program
@@ -32,7 +33,6 @@ object OpenUI5Demo {
 
       cityNameInput.setPlaceholder("Enter a city name")
       cityNameInput.setValue(owmQueryParams("q"))
-
 
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       // Is there already a form in the DOM?  If so, its left over from the last
@@ -52,12 +52,7 @@ object OpenUI5Demo {
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       // Create form
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      val form = new Form().
-        setEditable(true).
-        addStyleClass("sapUiResponsiveMargin").
-        setLayout(new GridLayout().setSingleColumn(true)).
-        setWidth("auto").
-        setTitle("Weather Report")
+      val form = createForm("Weather Report")
 
       // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       // Check for missing API Key.
@@ -111,21 +106,28 @@ object OpenUI5Demo {
       }
       else {
         // Nope, so display a missing API key error message
-        def errMsg = new Text().setText("API Key missing.  Please register with http://openweathermap.org and create" +
-          " yourself an API key.  This key must then be entered into the source code in file Utils.scala at line 19.")
-        def feErr = new FormElement().setLabel("ERROR").addField(errMsg)
+        def feErr = {
+          def errMsg = new Text().setText("API Key missing.  Please register with http://openweathermap.org and create" +
+            " yourself an API key.  This key must then be entered into the source code in file Utils.scala at line 19.")
+
+          new FormElement().setLabel("ERROR").addField(errMsg)
+        }
 
         form.addFormContainer(new FormContainer().addFormElement(feErr))
       }
 
       {
-        def fe4 = new FormElement().setLabel("City name").addField(cityNameInput)
+        def fc4 = {
+          def fe4 = new FormElement().setLabel("City name").addField(cityNameInput)
 
-        def fe5 = new FormElement().setLabel("").addField(goBtn)
+          new FormContainer().addFormElement(fe4)
+        }
 
-        def fc4 = new FormContainer().addFormElement(fe4)
+        def fc5 = {
+          def fe5 = new FormElement().setLabel("").addField(goBtn)
 
-        def fc5 = new FormContainer().addFormElement(fe5)
+          new FormContainer().addFormElement(fe5)
+        }
 
         // Add contents to form and place form on the screen
         form
@@ -135,6 +137,10 @@ object OpenUI5Demo {
       }
     })
   }
+
+  def createForm(title: String) =
+    new Form().setEditable(true).addStyleClass("sapUiResponsiveMargin").
+      setLayout(new GridLayout().setSingleColumn(true)).setWidth("auto").setTitle(title)
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Build HTML weather report
@@ -147,43 +153,30 @@ object OpenUI5Demo {
       setWidth("auto").
       setTitle(s"${report.cityName}, ${report.weatherSys.country} (${formatCoords(report.coord.lat, report.coord.lon)})")
 
-    // Display weather data using disabled input fields
-    val temperatureOutput = new Input().setValue(kelvinToDegStr(report.main.temp, report.main.temp_min, report.main.temp_max)).setEnabled(false)
-    val pressureOutput1 = new Input().setValue(formatPressure(report.main.airPressure)).setEnabled(false)
-    val pressureOutput2 = new Input().setValue(formatPressure(report.main.grnd_level)).setEnabled(false)
-    val pressureOutput3 = new Input().setValue(formatPressure(report.main.sea_level)).setEnabled(false)
+    def fieldFactory(label: String, output: String) = {
+      val outputField = new Input().setValue(output).setEnabled(false)
+      new FormContainer().addFormElement(new FormElement().setLabel(label).addField(outputField))
+    }
 
-    val humidityOutput = new Input().setValue(formatPercentage(report.main.humidity)).setEnabled(false)
-    val visibilityOutput = new Input().setValue(formatVisibility(report.visibility)).setEnabled(false)
-    val windSpeedOutput = new Input().setValue(formatVelocity(report.wind.speed)).setEnabled(false)
-    val windDirectionOutput = new Input().setValue(formatHeading(report.wind.heading)).setEnabled(false)
-    val cloudCoverOutput = new Input().setValue(formatPercentage(report.clouds)).setEnabled(false)
-
-    def fc1 = new FormContainer().addFormElement(new FormElement().setLabel("Temperature").addField(temperatureOutput))
-    val fc2 = new FormContainer()
-
-    // If ground level and sea level pressures are not available, then use the general atmospheric pressure
+    /*// If ground level and sea level pressures are not available, then use the general atmospheric pressure
     if (report.main.grnd_level == 0)
       fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure").addField(pressureOutput1))
     else {
       fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure (Ground Level)").addField(pressureOutput2))
       fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure (Sea Level)").addField(pressureOutput3))
-    }
+    }*/
 
-    def fc3 = new FormContainer().addFormElement(new FormElement().setLabel("Humidity").addField(humidityOutput))
-    def fc4 = new FormContainer().addFormElement(new FormElement().setLabel("Visibility").addField(visibilityOutput))
-    def fc5 = new FormContainer().addFormElement(new FormElement().setLabel("Wind Speed").addField(windSpeedOutput))
-    def fc6 = new FormContainer().addFormElement(new FormElement().setLabel("Wind Direction").addField(windDirectionOutput))
-    def fc7 = new FormContainer().addFormElement(new FormElement().setLabel("Cloud Cover").addField(cloudCoverOutput))
+    val fields = Seq(("Temperature", kelvinToDegStr(report.main.temp, report.main.temp_min, report.main.temp_max))
+      , ("Atmospheric Pressure", formatPressure(report.main.airPressure))
+      , ("Atmospheric Pressure (Ground Level)", formatPressure(report.main.grnd_level))
+      , ("Atmospheric Pressure (Sea Level)", formatPressure(report.main.sea_level))
+      , ("Humidity", formatPercentage(report.main.humidity))
+      , ("Visibility", formatVisibility(report.visibility))
+      , ("Wind Speed", formatVelocity(report.wind.speed))
+      , ("Wind Direction", formatHeading(report.wind.heading))
+      , ("Cloud Cover", formatPercentage(report.clouds)))
 
-    weatherForm.
-      addFormContainer(fc1).
-      addFormContainer(fc2).
-      addFormContainer(fc3).
-      addFormContainer(fc4).
-      addFormContainer(fc5).
-      addFormContainer(fc6).
-      addFormContainer(fc7)
+    fields.foreach { case (label, content) => weatherForm.addFormContainer(fieldFactory(label, content)) }
 
     def weatherGrid = new Grid().setDefaultSpan("L6 M6 S6")
 
@@ -197,6 +190,7 @@ object OpenUI5Demo {
 
       js.Object.defineProperty(new js.Object(), "onAfterRendering", propDescriptor)
     }
+
     val mapDiv = new HTML().
       setContent("<div id=\"mapDiv" + counter + "\" style=\"float: right; width: 500px; height: 500px; margin: 1rem; margin-top: 4rem\"></div>")
 

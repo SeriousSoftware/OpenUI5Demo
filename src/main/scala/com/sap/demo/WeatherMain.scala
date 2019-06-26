@@ -15,17 +15,9 @@ class WeatherMain(weatherMain: js.Dynamic) {
   val temp_min    = weatherMain.temp_min.asInstanceOf[Double]
   val temp_max    = weatherMain.temp_max.asInstanceOf[Double]
 
-  val sea_level = {
-    if (weatherMain.sea_level.toString == "undefined")
-      0.0
-    else
-      weatherMain.sea_level.asInstanceOf[Double]
-  }
+  val sea_level = if (weatherMain.sea_level.toString == "undefined") 0.0
+  else weatherMain.sea_level.asInstanceOf[Double]
 
-  val grnd_level = {
-    if (weatherMain.grnd_level.toString == "undefined")
-      0.0
-    else
-      weatherMain.grnd_level.asInstanceOf[Double]
-  }
+  val grnd_level = if (weatherMain.grnd_level.toString == "undefined") 0.0
+  else weatherMain.grnd_level.asInstanceOf[Double]
 }
