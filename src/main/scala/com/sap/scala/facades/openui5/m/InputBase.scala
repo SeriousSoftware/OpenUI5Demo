@@ -1,12 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.core._
 import com.sap.scala.facades.openui5._
+import com.sap.scala.facades.openui5.core._
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 //@JSGlobal("sap.m.InputBase")
 //@js.native

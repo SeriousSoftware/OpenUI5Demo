@@ -1,14 +1,9 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.LinkConversion
-import com.sap.scala.facades.openui5.core.{Control,CSSSize}
-
+import com.sap.scala.facades.openui5.core.{CSSSize, Control}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.FormattedText")
 @js.native
@@ -26,4 +21,3 @@ class FormattedText() extends Control {
   def setHtmlText(sText: String): this.type = js.native
   def setWidth(sWidth: CSSSize): this.type = js.native
 }
-     

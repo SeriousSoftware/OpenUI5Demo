@@ -38,7 +38,7 @@ object SplitAppMode {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown SplitAppMode: $s")
   }
-  
+
   object HideMode extends SplitAppMode {
     override private[ui] def toFacade: m.SplitAppMode = m.SplitAppMode.HideMode
   }

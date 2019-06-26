@@ -1,12 +1,7 @@
-
 package com.sap.scala.facades.openui5.model
 
-import com.sap.scala.facades.openui5.base._
-
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.model.Type")
 @js.native
@@ -15,4 +10,3 @@ class Type() extends js.Object {
 //  def getMetadata(): Metadata = js.native
   def getName(): String = js.native
 }
-     

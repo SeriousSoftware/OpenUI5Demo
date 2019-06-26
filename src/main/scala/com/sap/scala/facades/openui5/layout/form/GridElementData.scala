@@ -2,9 +2,8 @@ package com.sap.scala.facades.openui5.layout.form
 
 import com.sap.scala.facades.openui5.core.LayoutData
 
-
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.layout.form.GridElementData")
 @js.native
@@ -16,4 +15,3 @@ class GridElementData() extends LayoutData {
   def setHCells(sHCells: String = "auto"): this.type = js.native
   def setVCells(iVCells: Int = 1)        : this.type = js.native
 }
-     

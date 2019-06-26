@@ -1,11 +1,9 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.SplitApp")
 @js.native
@@ -19,4 +17,3 @@ class SplitApp() extends SplitContainer {
 //  def getMetadata(): Metadata = js.native
 //  def setHomeIcon(oHomeIcon: /*TODO Type: 'any' not found.*/): this.type = js.native
 }
-     

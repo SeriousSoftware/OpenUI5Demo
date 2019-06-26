@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.core
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.core.{CSSSize,URI,Control}
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.core.Icon")
 @js.native
@@ -51,4 +48,3 @@ class Icon() extends Control {
   def setUseIconTooltip(bUseIconTooltip: Boolean): this.type = js.native
   def setWidth(sWidth: CSSSize): this.type = js.native
 }
-     

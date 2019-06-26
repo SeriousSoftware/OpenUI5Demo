@@ -1,4 +1,3 @@
-
 package com.sap.scala.facades.openui5.core
 
 import com.sap.scala.facades.openui5.base.ManagedObject
@@ -60,7 +59,7 @@ abstract class Element extends ManagedObject {
   def rerender(): Unit = js.native
   def setLayoutData(oLayoutData: LayoutData): Unit = js.native
   def setTooltip(vTooltip: String): Unit = js.native
-  override def toString(): String = js.native
+  override def toString: String = js.native
   def ubindElement(sModelName: String): ManagedObject = js.native
 }
 

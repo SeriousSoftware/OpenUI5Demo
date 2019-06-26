@@ -38,7 +38,7 @@ object BarDesign {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown BarDesign: $s")
   }
-  
+
   object Auto extends BarDesign {
     override private[ui] def toFacade: m.BarDesign = m.BarDesign.Auto
   }

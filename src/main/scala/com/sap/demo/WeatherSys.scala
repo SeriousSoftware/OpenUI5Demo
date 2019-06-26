@@ -1,7 +1,8 @@
 package com.sap.demo
 
-import scala.scalajs.js
 import java.lang.{Long => JLong}
+
+import scala.scalajs.js
 
 // Country, sunrise and sunset times.
 class WeatherSys(sys: js.Dynamic) {

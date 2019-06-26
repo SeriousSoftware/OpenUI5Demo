@@ -38,7 +38,7 @@ object LoadState {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown LoadState: $s")
   }
-  
+
   object Disabled extends LoadState {
     override private[ui] def toFacade: m.LoadState = m.LoadState.Disabled
   }

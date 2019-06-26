@@ -33,7 +33,7 @@ object PopinDisplay {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown PopinDisplay: $s")
   }
-  
+
   object Block extends PopinDisplay {
     override private[ui] def toFacade: m.PopinDisplay = m.PopinDisplay.Block
   }

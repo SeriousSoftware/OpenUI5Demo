@@ -48,7 +48,7 @@ object ListMode {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ListMode: $s")
   }
-  
+
   object Delete extends ListMode {
     override private[ui] def toFacade: m.ListMode = m.ListMode.Delete
   }

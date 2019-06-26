@@ -43,7 +43,7 @@ object MessageType {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown MessageType: $s")
   }
-  
+
   object Error extends MessageType {
     override private[ui] def toFacade: ui.core.MessageType = ui.core.MessageType.Error
   }

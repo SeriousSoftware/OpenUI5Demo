@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-import com.sap.scala.facades.openui5.core.{ID,URI,ValueState,Control,TextDirection}
-
+import com.sap.scala.facades.openui5.core._
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.ObjectStatus")
 @js.native
@@ -32,4 +29,3 @@ class ObjectStatus() extends Control {
   def setTextDirection(sTextDirection: TextDirection): this.type = js.native
   def setTitle(sTitle: String): this.type = js.native
 }
-     

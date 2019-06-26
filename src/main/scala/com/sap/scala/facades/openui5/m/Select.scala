@@ -1,14 +1,12 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.{Popover,SelectType,Dialog}
 import com.sap.scala.facades.openui5.core._
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.Select")
 @js.native
@@ -74,4 +72,3 @@ class Select() extends Control {
   def setWidth(sWidth: CSSSize): this.type = js.native
   def unbindItems(): this.type = js.native
 }
-     

@@ -1,9 +1,7 @@
-
 package com.sap.scala.facades.openui5.core
 
-
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 //@JSGlobal("sap.ui.core.ListItem")
 //@js.native

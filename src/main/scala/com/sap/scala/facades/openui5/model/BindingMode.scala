@@ -38,7 +38,7 @@ object BindingMode {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown BindingMode: $s")
   }
-  
+
   object Default extends BindingMode {
     override private[ui] def toFacade: ui.model.BindingMode = ui.model.BindingMode.Default
   }

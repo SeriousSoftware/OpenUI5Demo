@@ -1,14 +1,7 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.{Popover,Dialog}
-import com.sap.scala.facades.openui5.core.Item
-
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.MultiComboBox")
 @js.native
@@ -42,4 +35,3 @@ class MultiComboBox() extends ComboBoxBase {
 //  def setSelectedItems(aItems: /*TODO Type: 'string[]' not found.*/ | js.Array[Item] | /*TODO Type: 'null' not found.*/): this.type = js.native
 //  def setSelectedKeys(sSelectedKeys: /*TODO Type: 'string[]' not found.*/): this.type = js.native
 }
-     

@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
 import com.sap.scala.facades.openui5.core.BackgroundDesign
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.List")
 @js.native
@@ -24,4 +21,3 @@ class List() extends ListBase {
   def removeColumn(vColumn: Int | String | Column): Column = js.native
   def setBackgroundDesign(sBackgroundDesign: BackgroundDesign): this.type = js.native
 }
-     

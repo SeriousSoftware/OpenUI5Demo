@@ -1,13 +1,9 @@
-
 package com.sap.scala.facades.openui5.core
-
-import com.sap.scala.facades.openui5.base._
 //import com.sap.scala.facades.openui5.core.TextDirection
 
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.core.Item")
 @js.native
@@ -23,4 +19,3 @@ class Item() extends Element {
   def setText(sText: String): this.type = js.native
   def setTextDirection(sTextDirection: TextDirection): this.type = js.native
 }
-     

@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.Text
-import com.sap.scala.facades.openui5.core.{CSSSize,Wrapping}
-
+import com.sap.scala.facades.openui5.core.{CSSSize, Wrapping}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.TextArea")
 @js.native
@@ -37,4 +34,3 @@ class TextArea() extends InputBase {
   def setValueLiveUpdate(bValueLiveUpdate: Boolean): this.type = js.native
   def setWrapping(sWrapping: Wrapping): this.type = js.native
 }
-     

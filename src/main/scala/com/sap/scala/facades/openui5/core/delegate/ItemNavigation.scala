@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.core.delegate
 
-import com.sap.scala.facades.openui5.base._
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps, EventProvider}
+import org.scalajs.dom.{Element => DOMElement}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
-import org.scalajs.dom.{Element => DOMElement}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.core.delegate.ItemNavigation")
 @js.native

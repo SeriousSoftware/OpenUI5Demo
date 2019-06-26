@@ -1,9 +1,7 @@
-
 package com.sap.scala.facades.openui5.core
 
-
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 /**
   * Wrapper for https://sapui5.hana.ondemand.com/#docs/api/symbols/sap.ui.core.HTML.html
@@ -16,4 +14,3 @@ class HTML() extends Control {
   def setContent(content: String): this.type = js.native
   def getContent(): String = js.native
 }
-     

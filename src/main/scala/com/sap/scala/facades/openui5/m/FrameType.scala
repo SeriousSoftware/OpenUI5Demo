@@ -38,7 +38,7 @@ object FrameType {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown FrameType: $s")
   }
-  
+
   object Auto extends FrameType {
     override private[ui] def toFacade: m.FrameType = m.FrameType.Auto
   }

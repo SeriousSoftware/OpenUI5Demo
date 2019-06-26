@@ -53,7 +53,7 @@ object TitleLevel {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown TitleLevel: $s")
   }
-  
+
   object Auto extends TitleLevel {
     override private[ui] def toFacade: ui.core.TitleLevel = ui.core.TitleLevel.Auto
   }

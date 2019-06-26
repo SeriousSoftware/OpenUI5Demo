@@ -1,13 +1,7 @@
-
 package com.sap.scala.facades.openui5.model
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.model.Context
-
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.model.Sorter")
 @js.native
@@ -18,4 +12,3 @@ class Sorter() extends js.Object {
 //  def getGroupFunction(): js.Function1[Event[EventProps], Unit] = js.native
 //  def getMetadata(): Metadata = js.native
 }
-     

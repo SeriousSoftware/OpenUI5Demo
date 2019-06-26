@@ -5,8 +5,8 @@ import com.sap.scala.facades.openui5.m.ColumnListItem
 import com.sap.scala.facades.openui5.model.{Binding, Context, Model}
 
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSGlobal
 import scala.scalajs.js.{Any, Array, Function1, Object, |}
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
 
 @JSGlobal("sap.ui.base.ManagedObject")
 @js.native

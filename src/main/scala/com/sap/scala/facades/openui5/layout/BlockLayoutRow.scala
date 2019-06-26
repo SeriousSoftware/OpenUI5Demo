@@ -1,14 +1,13 @@
-
 package com.sap.scala.facades.openui5.layout
 
-//import com.sap.scala.facades.openui5.base._
+//import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core._
 //import com.sap.scala.facades.openui5.layout.{BlockRowColorSets,BlockLayoutCell}
 
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.BlockLayoutRow")
 @js.native
@@ -30,4 +29,3 @@ class BlockLayoutRow() extends Control {
   def removeContent(vContent: Int | String | BlockLayoutCell): BlockLayoutCell = js.native
   def setScrollable(bScrollable: Boolean): this.type = js.native
 }
-     

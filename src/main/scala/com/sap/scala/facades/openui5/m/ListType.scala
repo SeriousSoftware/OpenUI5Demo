@@ -43,7 +43,7 @@ object ListType {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ListType: $s")
   }
-  
+
   object Active extends ListType {
     override private[ui] def toFacade: m.ListType = m.ListType.Active
   }

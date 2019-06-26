@@ -1,12 +1,9 @@
-
 package com.sap.scala.facades.openui5.model
-
-import com.sap.scala.facades.openui5.base._
 //import com.sap.scala.facades.openui5.model.{BindingMode, Type}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, Object, |}
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.Object
+import scala.scalajs.js.annotation.JSGlobal
 
 //@JSGlobal("sap.ui.model.PropertyBinding")
 //@js.native

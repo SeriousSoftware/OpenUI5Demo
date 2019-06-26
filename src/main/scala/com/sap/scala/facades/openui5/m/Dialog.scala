@@ -1,14 +1,12 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.{DialogType,IBar,OverflowToolbar,Button}
-import com.sap.scala.facades.openui5.core.{ID,CSSSize,URI,ValueState,Control}
-
+import com.sap.scala.facades.openui5.core._
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.Dialog")
 @js.native
@@ -100,4 +98,3 @@ class Dialog() extends Control {
 //  def setType(sType: DialogType): this.type = js.native
   def setVerticalScrolling(bVerticalScrolling: Boolean): this.type = js.native
 }
-     

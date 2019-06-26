@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.TextProp
 //import com.sap.scala.facades.openui5.m.LabelDesign
-import com.sap.scala.facades.openui5.core.{CSSSize,Control,TextAlign,TextDirection}
-
+import com.sap.scala.facades.openui5.core.Control
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.Label")
 @js.native
@@ -32,4 +29,3 @@ class Label() extends Control with TextProp {
 //  def setTextDirection(sTextDirection: TextDirection): this.type = js.native
 //  def setWidth(sWidth: CSSSize): this.type = js.native
 }
-     

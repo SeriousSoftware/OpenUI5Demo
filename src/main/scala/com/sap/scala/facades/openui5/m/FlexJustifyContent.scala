@@ -48,7 +48,7 @@ object FlexJustifyContent {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown FlexJustifyContent: $s")
   }
-  
+
   object Center extends FlexJustifyContent {
     override private[ui] def toFacade: m.FlexJustifyContent = m.FlexJustifyContent.Center
   }

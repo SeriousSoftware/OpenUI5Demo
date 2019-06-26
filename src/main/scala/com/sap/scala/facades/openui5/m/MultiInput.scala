@@ -1,14 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.{Token,Tokenizer}
-import com.sap.scala.facades.openui5.core.Element
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.MultiInput")
 @js.native
@@ -46,4 +42,3 @@ class MultiInput() extends Input {
   def setMaxTokens(iMaxTokens: Int): this.type = js.native
   def setTokens(aTokens: js.Array[Token]): this.type = js.native
 }
-     

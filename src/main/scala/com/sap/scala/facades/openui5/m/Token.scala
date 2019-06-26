@@ -1,13 +1,12 @@
-
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5._
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core._
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.Token")
 @js.native
@@ -45,4 +44,3 @@ class Token() extends EditableProp with SelectedProp with TextProp {
 //  def setText(sText: String): this.type = js.native
   def setTextDirection(sTextDirection: TextDirection): this.type = js.native
 }
-     

@@ -28,7 +28,7 @@ object ListGrowingDirection {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ListGrowingDirection: $s")
   }
-  
+
   object Downwards extends ListGrowingDirection {
     override private[ui] def toFacade: m.ListGrowingDirection = m.ListGrowingDirection.Downwards
   }

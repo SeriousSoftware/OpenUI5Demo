@@ -1,12 +1,9 @@
-
 package com.sap.scala.facades.openui5.model
 
-import com.sap.scala.facades.openui5.base.{EventProvider, Event, EventProps}
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps, EventProvider}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.model.Binding")
 @js.native
@@ -39,4 +36,3 @@ class Binding() extends EventProvider {
   def suspend(): Unit = js.native
   def updateRequired(oModel: Object): Boolean = js.native
 }
-     

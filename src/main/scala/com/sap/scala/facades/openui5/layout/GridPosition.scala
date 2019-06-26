@@ -33,7 +33,7 @@ object GridPosition {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown GridPosition: $s")
   }
-  
+
   object Center extends GridPosition {
     override private[ui] def toFacade: ui.layout.GridPosition = ui.layout.GridPosition.Center
   }

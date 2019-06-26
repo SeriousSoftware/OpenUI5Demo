@@ -33,7 +33,7 @@ object LinkConversion {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown LinkConversion: $s")
   }
-  
+
   object All extends LinkConversion {
     override private[ui] def toFacade: m.LinkConversion = m.LinkConversion.All
   }

@@ -308,7 +308,7 @@ object AccessibleRole {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown AccessibleRole: $s")
   }
-  
+
   object Alert extends AccessibleRole {
     override private[ui] def toFacade: ui.core.AccessibleRole = ui.core.AccessibleRole.Alert
   }

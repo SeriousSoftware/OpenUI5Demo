@@ -1,12 +1,10 @@
-
 package com.sap.scala.facades.openui5.layout.form
 
-import com.sap.scala.facades.openui5.core.{Title, Element}
-
+import com.sap.scala.facades.openui5.core.{Element, Title}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.form.FormContainer")
 @js.native
@@ -37,4 +35,3 @@ class FormContainer() extends Element {
 //  def setToolbar(oToolbar: Toolbar): this.type = js.native
   def setVisible(bVisible: Boolean): this.type = js.native
 }
-     

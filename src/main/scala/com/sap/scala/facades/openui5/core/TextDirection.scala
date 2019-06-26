@@ -33,7 +33,7 @@ object TextDirection {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown TextDirection: $s")
   }
-  
+
   object Inherit extends TextDirection {
     override private[ui] def toFacade: ui.core.TextDirection = ui.core.TextDirection.Inherit
   }

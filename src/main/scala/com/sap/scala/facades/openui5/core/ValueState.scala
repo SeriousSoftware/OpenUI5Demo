@@ -38,7 +38,7 @@ object ValueState {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ValueState: $s")
   }
-  
+
   object Error extends ValueState {
     override private[ui] def toFacade: ui.core.ValueState = ui.core.ValueState.Error
   }

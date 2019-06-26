@@ -1,12 +1,9 @@
-
 package com.sap.scala.facades.openui5.layout
 
 import com.sap.scala.facades.openui5.core.LayoutData
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.layout.GridData")
 @js.native
@@ -74,4 +71,3 @@ class GridData() extends LayoutData {
   def setVisibleS(bVisibleS: Boolean): this.type = js.native
   def setVisibleXL(bVisibleXL: Boolean): this.type = js.native
 }
-     

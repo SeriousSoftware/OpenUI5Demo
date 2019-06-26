@@ -1,14 +1,12 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.ListType
-import com.sap.scala.facades.openui5.core.{ID,Control,MessageType}
-
+import com.sap.scala.facades.openui5.core.{Control, ID, MessageType}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.ListItemBase")
 @js.native
@@ -46,4 +44,3 @@ class ListItemBase() extends Control {
   def setUnread(bUnread: Boolean): this.type = js.native
 //  def setVisible(bVisible: Boolean): this.type = js.native
 }
-     

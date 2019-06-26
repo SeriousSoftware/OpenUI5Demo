@@ -1,14 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.{LightBox,ImageMode}
-import com.sap.scala.facades.openui5.core.{Control,CSSSize,URI}
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
+import com.sap.scala.facades.openui5.core.{CSSSize, Control, URI}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
 sealed trait ImageMode extends js.Object
@@ -72,4 +68,3 @@ class Image() extends Control {
   def setWidth(sWidth: CSSSize): this.type = js.native
   def unbindDetailBox(): this.type = js.native
 }
-     

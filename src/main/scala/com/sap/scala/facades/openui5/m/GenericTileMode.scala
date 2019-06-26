@@ -33,7 +33,7 @@ object GenericTileMode {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown GenericTileMode: $s")
   }
-  
+
   object ContentMode extends GenericTileMode {
     override private[ui] def toFacade: m.GenericTileMode = m.GenericTileMode.ContentMode
   }

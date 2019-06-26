@@ -1,4 +1,3 @@
-
 package com.sap.scala.facades.openui5.core
 
 
@@ -47,4 +46,3 @@ class Configuration() extends js.Object {
 //  def setLanguage(sLanguage: String, sSAPLogonLanguage: String): this.type = js.native
 //  def setRTL(bRTL: Boolean | /*TODO Type: 'null' not found.*/): this.type = js.native
 }
-     

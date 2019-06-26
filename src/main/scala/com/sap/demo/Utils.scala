@@ -4,6 +4,17 @@ import scala.scalajs.js.annotation.JSExportTopLevel
 
 @JSExportTopLevel("Utils")
 object Utils {
+  val owmQueryParams = scala.collection.mutable.Map[String, String](
+    "q" -> ""
+    , "type" -> "like"
+    , "mode" -> "json"
+    //,"apikey" -> "<Paste your API Key value here>"
+    , "apikey" -> "9ff16c79edd6ad12396c22ed8a7996ec"
+  )
+  val mbQueryParams = scala.collection.Map[String, String](
+    "access_token" -> "pk.eyJ1IjoiZmFuY2VsbHUiLCJhIjoiY2oxMHRzZm5zMDAyMDMycndyaTZyYnp6NSJ9.AJ3owakJtFAJaaRuYB7Ukw"
+  )
+
   // OpenWeather endpoint details
   def weatherEndpoint = {
     def openWeatherMapHost = "openweathermap.org"
@@ -18,18 +29,6 @@ object Utils {
 
     mapBoxHost.concat("/v4/{id}/{z}/{x}/{y}.png")
   }
-
-  val owmQueryParams = scala.collection.mutable.Map[String,String](
-    "q"       -> ""
-    ,"type"   -> "like"
-    ,"mode"   -> "json"
-//    ,"apikey" -> "<Paste your API Key value here>"
-    ,"apikey" -> "9ff16c79edd6ad12396c22ed8a7996ec"
-  )
-
-  val mbQueryParams = scala.collection.Map[String, String](
-    "access_token" -> "pk.eyJ1IjoiZmFuY2VsbHUiLCJhIjoiY2oxMHRzZm5zMDAyMDMycndyaTZyYnp6NSJ9.AJ3owakJtFAJaaRuYB7Ukw"
-  )
 
   // Check if a character string is a valid hex number
   def isHexStr(s: String): Boolean = {
@@ -65,13 +64,6 @@ object Utils {
     val lonStr = s"${Math.abs(lon)}˚${if (lon >= 0) "E" else "W"}"
 
     s"$latStr, $lonStr"
-  }
-
-  // The weather conditions text string is all lowercase.
-  // Convert it to sentence case
-  private def formatDescription(d: String): String = {
-    val (head, tail) = d.splitAt(1)
-    head.toUpperCase + tail
   }
 
   // Convert the wind direction heading in degrees to the nearest compass point

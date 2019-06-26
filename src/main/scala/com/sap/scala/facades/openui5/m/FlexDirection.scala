@@ -43,7 +43,7 @@ object FlexDirection {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown FlexDirection: $s")
   }
-  
+
   object Column extends FlexDirection {
     override private[ui] def toFacade: m.FlexDirection = m.FlexDirection.Column
   }

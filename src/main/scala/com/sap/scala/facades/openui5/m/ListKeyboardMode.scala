@@ -28,7 +28,7 @@ object ListKeyboardMode {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ListKeyboardMode: $s")
   }
-  
+
   object Edit extends ListKeyboardMode {
     override private[ui] def toFacade: m.ListKeyboardMode = m.ListKeyboardMode.Edit
   }

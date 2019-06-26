@@ -48,7 +48,7 @@ object Size {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown Size: $s")
   }
-  
+
   object Auto extends Size {
     override private[ui] def toFacade: m.Size = m.Size.Auto
   }

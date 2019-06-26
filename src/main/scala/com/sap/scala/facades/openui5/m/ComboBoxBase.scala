@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.{Bar,SelectList,Popover,ComboBox,ComboBoxTextField,Input,Dialog}
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core.Item
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.ComboBoxBase")
 @js.native
@@ -45,4 +42,3 @@ class ComboBoxBase() extends ComboBoxTextField {
   def setPickerType(sPickerType: String): Unit = js.native
   def unbindItems(): this.type = js.native
 }
-     

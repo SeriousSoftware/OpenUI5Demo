@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.core.message
 
 import com.sap.scala.facades.openui5.base.{Event, EventProps, EventProvider}
 import com.sap.scala.facades.openui5.model.ListBinding
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 //@JSGlobal("sap.ui.core.message.MessageProcessor")
 //@js.native

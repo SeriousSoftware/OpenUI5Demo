@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.layout
 
-import com.sap.scala.facades.openui5.base._
-import com.sap.scala.facades.openui5.core.{CSSSize,Control}
-
+import com.sap.scala.facades.openui5.core.{CSSSize, Control}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.VerticalLayout")
 @js.native
@@ -26,4 +23,3 @@ class VerticalLayout() extends Control {
   def removeContent(vContent: Int | String | Control): Control = js.native
   def setEnabled(bEnabled: Boolean): this.type = js.native
 }
-     

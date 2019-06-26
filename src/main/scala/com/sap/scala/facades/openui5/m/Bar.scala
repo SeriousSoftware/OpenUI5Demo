@@ -1,13 +1,9 @@
-
 package com.sap.scala.facades.openui5.m
-
-import com.sap.scala.facades.openui5.base._
 //import com.sap.scala.facades.openui5.m.BarDesign
-import com.sap.scala.facades.openui5.core.{ID,Control}
+import com.sap.scala.facades.openui5.core.Control
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 
 /* Interface for Bar, OverflowToolbar and Toolbar
@@ -66,4 +62,3 @@ class Bar() extends IBar {
 //  def setEnableFlexBox(bEnableFlexBox: Boolean): this.type = js.native
 //  def setTranslucent(bTranslucent: Boolean): this.type = js.native
 }
-     

@@ -1,14 +1,12 @@
-
 package com.sap.scala.facades.openui5.layout
 
-import com.sap.scala.facades.openui5.base._
-import com.sap.scala.facades.openui5.core.{Control,TitleLevel,HorizontalAlign}
+import com.sap.scala.facades.openui5.core.{Control, HorizontalAlign, TitleLevel}
 //import com.sap.scala.facades.openui5.layout.{BlockLayoutCellColorSet,BlockLayoutCellColorShade}
 
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.BlockLayoutCell")
 @js.native
@@ -34,4 +32,3 @@ class BlockLayoutCell() extends Control {
   def setTitleAlignment(sTitleAlignment: HorizontalAlign): this.type = js.native
   def setTitleLevel(sTitleLevel: TitleLevel): this.type = js.native
 }
-     

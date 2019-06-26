@@ -33,7 +33,7 @@ object SwipeDirection {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown SwipeDirection: $s")
   }
-  
+
   object Both extends SwipeDirection {
     override private[ui] def toFacade: m.SwipeDirection = m.SwipeDirection.Both
   }

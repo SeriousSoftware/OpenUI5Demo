@@ -2,7 +2,6 @@ package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.core.Control
 
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal
 

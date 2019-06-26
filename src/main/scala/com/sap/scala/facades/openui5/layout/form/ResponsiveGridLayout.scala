@@ -1,12 +1,7 @@
-
 package com.sap.scala.facades.openui5.layout.form
 
-import com.sap.scala.facades.openui5.base._
-
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.layout.form.ResponsiveGridLayout")
 @js.native
@@ -46,4 +41,3 @@ class ResponsiveGridLayout() extends FormLayout {
   def setLabelSpanXL(iLabelSpanXL: Int): this.type = js.native
   def setSingleContainerFullSize(bSingleContainerFullSize: Boolean): this.type = js.native
 }
-     

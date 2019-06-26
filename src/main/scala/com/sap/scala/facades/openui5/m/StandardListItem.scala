@@ -1,13 +1,9 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-import com.sap.scala.facades.openui5.core.{URI,ValueState,TextDirection}
-
+import com.sap.scala.facades.openui5.core.{TextDirection, URI, ValueState}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.StandardListItem")
 @js.native
@@ -37,4 +33,3 @@ class StandardListItem() extends ListItemBase {
   def setTitle(sTitle: String): this.type = js.native
   def setTitleTextDirection(sTitleTextDirection: TextDirection): this.type = js.native
 }
-     

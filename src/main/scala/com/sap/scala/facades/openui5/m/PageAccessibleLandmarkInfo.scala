@@ -1,13 +1,9 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-import com.sap.scala.facades.openui5.core.{Element,AccessibleLandmarkRole}
-
+import com.sap.scala.facades.openui5.core.{AccessibleLandmarkRole, Element}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.PageAccessibleLandmarkInfo")
 @js.native
@@ -35,4 +31,3 @@ class PageAccessibleLandmarkInfo() extends Element {
   def setSubHeaderLabel(sSubHeaderLabel: String): this.type = js.native
   def setSubHeaderRole(sSubHeaderRole: AccessibleLandmarkRole): this.type = js.native
 }
-     

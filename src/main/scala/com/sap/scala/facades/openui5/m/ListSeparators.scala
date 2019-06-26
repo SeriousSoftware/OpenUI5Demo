@@ -33,7 +33,7 @@ object ListSeparators {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ListSeparators: $s")
   }
-  
+
   object All extends ListSeparators {
     override private[ui] def toFacade: m.ListSeparators = m.ListSeparators.All
   }

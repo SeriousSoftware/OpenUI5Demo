@@ -38,7 +38,7 @@ object ValueColor {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown ValueColor: $s")
   }
-  
+
   object Critical extends ValueColor {
     override private[ui] def toFacade: m.ValueColor = m.ValueColor.Critical
   }

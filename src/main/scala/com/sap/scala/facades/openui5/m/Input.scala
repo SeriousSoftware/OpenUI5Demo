@@ -1,14 +1,13 @@
-
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.LiveValueProp
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.{Column, ColumnListItem, InputBase, InputTextFormatMode, InputType}
-import com.sap.scala.facades.openui5.core.{CSSSize, ID, Icon, Item}
+import com.sap.scala.facades.openui5.core.{CSSSize, ID, Item}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.Input")
 @js.native
@@ -110,4 +109,3 @@ class Input() extends InputBase with LiveValueProp {
   def unbindSuggestionColumns(): this.type = js.native
   def unbindSuggestionRows(): this.type = js.native
 }
-     

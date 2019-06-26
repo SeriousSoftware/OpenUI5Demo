@@ -1,13 +1,11 @@
 package com.sap.scala.facades.openui5.model
 
-import com.sap.scala.facades.openui5.core.message.MessageProcessor
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
-
+import com.sap.scala.facades.openui5.core.message.MessageProcessor
 
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSGlobal
 import scala.scalajs.js.|
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
-
 
 @JSGlobal("sap.ui.model.Model")
 @js.native

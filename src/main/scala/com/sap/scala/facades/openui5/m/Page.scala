@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.{PageAccessibleLandmarkInfo,IBar,PageBackgroundDesign,ButtonType}
-import com.sap.scala.facades.openui5.core.{URI,Element,Control,TitleLevel}
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
+import com.sap.scala.facades.openui5.core.{Control, TitleLevel, URI}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.Page")
 @js.native
@@ -77,4 +74,3 @@ class Page() extends Control {
   def setTitle(sTitle: String): this.type = js.native
   def setTitleLevel(sTitleLevel: TitleLevel): this.type = js.native
 }
-     

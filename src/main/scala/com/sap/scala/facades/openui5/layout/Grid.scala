@@ -1,12 +1,10 @@
-
 package com.sap.scala.facades.openui5.layout
 
-import com.sap.scala.facades.openui5.core.{CSSSize,Control}
-
+import com.sap.scala.facades.openui5.core.{CSSSize, Control}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.Grid")
 @js.native
@@ -40,4 +38,3 @@ class Grid() extends Control {
   def setVSpacing(fVSpacing: Float): this.type = js.native
   def setWidth(sWidth: CSSSize): this.type = js.native
 }
-     

@@ -1,13 +1,11 @@
-
 package com.sap.scala.facades.openui5.model
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.model.{Context,FilterType,Sorter}
 
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.model.ListBinding")
 @js.native
@@ -28,4 +26,3 @@ class ListBinding() extends Binding {
   def isLengthFinal(): Boolean = js.native
 //  def sort(aSorters: Sorter | /*TODO Type: 'Array' not found.*/): this.type = js.native
 }
-     

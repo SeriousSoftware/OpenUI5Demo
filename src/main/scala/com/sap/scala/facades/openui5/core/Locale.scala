@@ -1,12 +1,7 @@
-
 package com.sap.scala.facades.openui5.core
 
-import com.sap.scala.facades.openui5.base._
-
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.core.Locale")
 @js.native
@@ -24,4 +19,3 @@ class Locale() extends js.Object {
   def getVariant(): String = js.native
 //  def getVariantSubtags(): /*TODO Type: 'string[]' not found.*/ = js.native
 }
-     

@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core.Control
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.Tile")
 @js.native
@@ -20,4 +17,3 @@ class Tile() extends Control {
   def getRemovable(): Boolean = js.native
   def setRemovable(bRemovable: Boolean): this.type = js.native
 }
-     

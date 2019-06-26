@@ -1,12 +1,11 @@
-
 package com.sap.scala.facades.openui5.base
 
 //import com.sap.scala.facades.openui5.base.Metadata
 
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.base.EventProvider")
 @js.native

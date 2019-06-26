@@ -38,7 +38,7 @@ object BlockRowColorSets {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown BlockRowColorSets: $s")
   }
-  
+
   object ColorSet1 extends BlockRowColorSets {
     override private[ui] def toFacade: ui.layout.BlockRowColorSets = ui.layout.BlockRowColorSets.ColorSet1
   }

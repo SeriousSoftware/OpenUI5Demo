@@ -3,7 +3,7 @@ package com.sap.scala.facades.openui5.m
 import com.sap.scala.facades.openui5.core.{CSSColor, Control}
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSExportAll, JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 /**
   * Wrapper for sap.marmolata.ui.Canvas

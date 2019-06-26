@@ -1,10 +1,7 @@
-
 package com.sap.scala.facades.openui5.core
 
-import com.sap.scala.facades.openui5.base._
-
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 /**
   * Wrapper for https://sapui5.hana.ondemand.com/#docs/api/symbols/sap.ui.core.CustomData.html

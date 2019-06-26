@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-import com.sap.scala.facades.openui5.core.{Control,TextDirection}
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
+import com.sap.scala.facades.openui5.core.{Control, TextDirection}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.ObjectAttribute")
 @js.native
@@ -30,4 +27,3 @@ class ObjectAttribute() extends Control {
   def setTextDirection(sTextDirection: TextDirection): this.type = js.native
   def setTitle(sTitle: String): this.type = js.native
 }
-     

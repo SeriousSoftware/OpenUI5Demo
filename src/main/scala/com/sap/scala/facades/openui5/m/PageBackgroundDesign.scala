@@ -38,7 +38,7 @@ object PageBackgroundDesign {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown PageBackgroundDesign: $s")
   }
-  
+
   object List extends PageBackgroundDesign {
     override private[ui] def toFacade: m.PageBackgroundDesign = m.PageBackgroundDesign.List
   }

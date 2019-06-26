@@ -2,14 +2,9 @@
 package com.sap.scala.facades.openui5.core
 
 import com.sap.scala.facades.openui5.base.BaseObject
-//import com.sap.scala.facades.openui5.model.Model
-//import com.sap.scala.facades.openui5.core.{Configuration,Element,Control,RenderManager,UIArea}
-//import com.sap.scala.facades.openui5.app.Application
-
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.ui.core.Core")
 @js.native
@@ -82,4 +77,3 @@ class Core extends BaseObject {
 //  def unlock(): Unit = js.native
 //  def unregisterPlugin(oPlugin: Object): Unit = js.native
 }
-     

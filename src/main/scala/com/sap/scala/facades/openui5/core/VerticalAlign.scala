@@ -38,7 +38,7 @@ object VerticalAlign {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown VerticalAlign: $s")
   }
-  
+
   object Bottom extends VerticalAlign {
     override private[ui] def toFacade: ui.core.VerticalAlign = ui.core.VerticalAlign.Bottom
   }

@@ -1,11 +1,9 @@
-
 package com.sap.scala.facades.openui5.model
 
 
-import scala.scalajs.js.Object
-
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.Object
+import scala.scalajs.js.annotation.JSGlobal
 
 /**
   * Wrapper for https://sapui5.hana.ondemand.com/#docs/api/symbols/sap.ui.model.Context.html

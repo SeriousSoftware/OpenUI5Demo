@@ -1,14 +1,12 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.{ToolbarDesign,Title}
-import com.sap.scala.facades.openui5.core.{ID,CSSSize,Control}
-
+import com.sap.scala.facades.openui5.core.{CSSSize, Control, ID}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.Toolbar")
 @js.native
@@ -43,4 +41,3 @@ class Toolbar() extends Control {
   def setHeight(sHeight: CSSSize): this.type = js.native
   def setWidth(sWidth: CSSSize): this.type = js.native
 }
-     

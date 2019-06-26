@@ -1,13 +1,10 @@
-
 package com.sap.scala.facades.openui5.layout
 
-import com.sap.scala.facades.openui5.base._
 import com.sap.scala.facades.openui5.core.Control
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.HorizontalLayout")
 @js.native
@@ -25,4 +22,3 @@ class HorizontalLayout() extends Control {
   def removeContent(vContent: Int | String | Control): Control = js.native
   def setAllowWrapping(bAllowWrapping: Boolean): this.type = js.native
 }
-     

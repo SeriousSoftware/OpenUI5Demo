@@ -1,13 +1,9 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
 import com.sap.scala.facades.openui5.core.CSSSize
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.ComboBoxTextField")
 @js.native
@@ -20,4 +16,3 @@ class ComboBoxTextField() extends InputBase {
   def setMaxWidth(sMaxWidth: CSSSize): this.type = js.native
   def setShowButton(bShowButton: Boolean): this.type = js.native
 }
-     

@@ -5,7 +5,6 @@ import com.sap.scala.facades.openui5.core.{Item, URI}
 import com.sap.scala.facades.openui5.m.ColumnListItem
 
 import scala.scalajs.js
-import scala.scalajs.js.Function1
 import scala.scalajs.js.annotation.ScalaJSDefined
 
 @js.native

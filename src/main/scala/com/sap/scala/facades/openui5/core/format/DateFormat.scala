@@ -1,12 +1,7 @@
-
 package com.sap.scala.facades.openui5.core.format
 
-import com.sap.scala.facades.openui5.core.Locale
-
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
 
 /**
   * Wrapper for https://sapui5.hana.ondemand.com/#docs/api/symbols/sap.ui.core.format.DateFormat.html

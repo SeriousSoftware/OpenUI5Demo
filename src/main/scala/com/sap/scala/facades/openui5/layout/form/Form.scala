@@ -1,13 +1,11 @@
-
 package com.sap.scala.facades.openui5.layout.form
 
-import com.sap.scala.facades.openui5.m.Toolbar
 import com.sap.scala.facades.openui5.core._
-
+import com.sap.scala.facades.openui5.m.Toolbar
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
 import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.form.Form")
 @js.native
@@ -49,4 +47,3 @@ class Form() extends Control {
   def setToolbar(oToolbar: Toolbar): this.type = js.native
   def setWidth(sWidth: CSSSize): this.type = js.native
 }
-     

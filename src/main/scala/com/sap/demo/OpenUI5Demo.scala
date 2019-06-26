@@ -1,11 +1,10 @@
 package com.sap.demo
 
-import com.felstar.scalajs.leaflet.{L, LMapOptions, TileLayerOptions, MarkerOptions}
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core.HTML
+import com.sap.scala.facades.openui5.layout.form.{Form, FormContainer, FormElement, GridElementData, GridLayout}
 import com.sap.scala.facades.openui5.layout.{Grid, GridData}
-import com.sap.scala.facades.openui5.layout.form._
-import com.sap.scala.facades.openui5.m._
+import com.sap.scala.facades.openui5.m.{Button, Input, MessageToast, Text}
 import com.sap.scala.facades.openui5.ui
 import org.scalajs.dom
 
@@ -16,110 +15,6 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 object OpenUI5Demo {
   import Utils.{formatCoords, formatHeading, formatPercentage, formatPressure, formatVelocity,formatVisibility,
     isHexStr, kelvinToDegStr, mapBoxEndpoint, mbQueryParams, owmQueryParams, weatherEndpoint}
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  // Create a slippy map of the current city and as a side-effect, directly
-  // updates the DOM element received as a parameter
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  @JSExport
-  def buildSlippyMap(mapDiv: String, report: WeatherReportBuilder): () => Unit = {
-    () => {
-      // Centre the map on the city's coordinates with a default zoom level of 12
-      // Then place the slippy map inside the just-created div called mapDiv
-      val mapOpts = LMapOptions.zoom(12).center((report.coord.lat, report.coord.lon))
-      val map     = L.map(mapDiv, mapOpts)
-
-      val queryStr = (for (p <- mbQueryParams.keys)
-        yield s"$p=${mbQueryParams(p)}"
-        ).mkString("?", "&", "")
-
-      val tileLayer = L.tileLayer(
-        mapBoxEndpoint.concat(queryStr),
-        TileLayerOptions
-          .id("mapbox.streets")
-          .maxZoom(19)
-          .attribution("""Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
-                        |<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,
-                        |Imagery © <a href="http://mapbox.com">Mapbox</a>""".stripMargin)
-      )
-
-      tileLayer.addTo(map)
-
-      L.marker(
-        (report.coord.lat, report.coord.lon),
-        MarkerOptions.title(s"${report.cityName}, ${report.weatherSys.country}"))
-        .addTo(map)
-    }
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  // Build HTML weather report
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  def buildWeatherReport(report: WeatherReportBuilder, counter: Int): Grid = {
-    val weatherForm = new Form().
-      setEditable(true).
-      addStyleClass("sapUiResponsiveMargin").
-      setLayout(new GridLayout().setSingleColumn(true)).
-      setWidth("auto").
-      setTitle(s"${report.cityName}, ${report.weatherSys.country} (${formatCoords(report.coord.lat, report.coord.lon)})")
-
-    // Display weather data using disabled input fields
-    val temperatureOutput  = new Input().setValue(kelvinToDegStr(report.main.temp, report.main.temp_min, report.main.temp_max)).setEnabled(false)
-    val pressureOutput1    = new Input().setValue(formatPressure(report.main.airPressure)).setEnabled(false)
-    val pressureOutput2    = new Input().setValue(formatPressure(report.main.grnd_level)).setEnabled(false)
-    val pressureOutput3    = new Input().setValue(formatPressure(report.main.sea_level)).setEnabled(false)
-
-    val humidityOutput      = new Input().setValue(formatPercentage(report.main.humidity)).setEnabled(false)
-    val visibilityOutput    = new Input().setValue(formatVisibility(report.visibility)).setEnabled(false)
-    val windSpeedOutput     = new Input().setValue(formatVelocity(report.wind.speed)).setEnabled(false)
-    val windDirectionOutput = new Input().setValue(formatHeading(report.wind.heading)).setEnabled(false)
-    val cloudCoverOutput    = new Input().setValue(formatPercentage(report.clouds)).setEnabled(false)
-
-    val fc1 = new FormContainer().addFormElement(new FormElement().setLabel("Temperature").addField(temperatureOutput))
-    val fc2 = new FormContainer()
-
-    // If ground level and sea level pressures are not available, then use the general atmospheric pressure
-    if (report.main.grnd_level == 0)
-      fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure").addField(pressureOutput1))
-    else {
-      fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure (Ground Level)").addField(pressureOutput2))
-      fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure (Sea Level)").addField(pressureOutput3))
-    }
-
-    val fc3 = new FormContainer().addFormElement(new FormElement().setLabel("Humidity").addField(humidityOutput))
-    val fc4 = new FormContainer().addFormElement(new FormElement().setLabel("Visibility").addField(visibilityOutput))
-    val fc5 = new FormContainer().addFormElement(new FormElement().setLabel("Wind Speed").addField(windSpeedOutput))
-    val fc6 = new FormContainer().addFormElement(new FormElement().setLabel("Wind Direction").addField(windDirectionOutput))
-    val fc7 = new FormContainer().addFormElement(new FormElement().setLabel("Cloud Cover").addField(cloudCoverOutput))
-
-    weatherForm.
-      addFormContainer(fc1).
-      addFormContainer(fc2).
-      addFormContainer(fc3).
-      addFormContainer(fc4).
-      addFormContainer(fc5).
-      addFormContainer(fc6).
-      addFormContainer(fc7)
-
-    val weatherGrid = new Grid().setDefaultSpan("L6 M6 S6")
-
-    val propDescriptor = js.Dynamic.literal(
-      configurable = true,
-      enumerable   = true,
-      value        = buildSlippyMap("mapDiv" + counter, report),
-      writable     = true
-    ).asInstanceOf[js.PropertyDescriptor]
-
-    val onAfterRenderingHandler = js.Object.defineProperty(new js.Object(), "onAfterRendering", propDescriptor)
-
-    val mapDiv = new HTML().
-      setContent("<div id=\"mapDiv" + counter + "\" style=\"float: right; width: 500px; height: 500px; margin: 1rem; margin-top: 4rem\"></div>")
-
-    mapDiv.addEventDelegate(onAfterRenderingHandler)
-    mapDiv.setLayoutData(new GridData().setSpanL(6).setSpanM(6).setSpanS(6))
-
-    weatherGrid.addContent(weatherForm).addContent(mapDiv)
-  }
-
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Main program
@@ -175,18 +70,15 @@ object OpenUI5Demo {
       // Has the user created their own API Key?
       if (apiKeyPresent) {
         // Yup, so define the Button onPress event handler
-        val onButtonPress: js.Function1[Event[EventProps], Unit] =
+        def onButtonPress: js.Function1[Event[EventProps], Unit] =
           (_: Event[EventProps]) => {
             println(s"User entered '${cityNameInput.getValue()}'")
             owmQueryParams += ("q" -> cityNameInput.getValue())
 
-            val queryStr = (
-              for (p <- owmQueryParams.keys)
-                yield s"$p=${owmQueryParams(p)}"
-              ).mkString("?", "&", "")
+            def queryStr = owmQueryParams.map { case (k, v) => s"$k=$v" }.mkString("?", "&", "")
 
             val xhr = new dom.XMLHttpRequest
-            xhr.open("GET", weatherEndpoint + queryStr)
+            xhr.open("GET", weatherEndpoint.concat(queryStr))
 
             xhr.onload = (_: dom.Event) => {
               val data = js.JSON.parse(xhr.responseText)
@@ -207,7 +99,7 @@ object OpenUI5Demo {
               else {
                 val report = new WeatherReportBuilder(data)
                 buildWeatherReport(report, 0).placeAt(weatherDivId)
-                buildSlippyMap(s"mapDiv$gridCounter", report)
+                SlippyMap.buildSlippyMap(s"mapDiv$gridCounter", report)
               }
             }
 
@@ -219,25 +111,98 @@ object OpenUI5Demo {
       }
       else {
         // Nope, so display a missing API key error message
-        val errMsg = new Text().setText("API Key missing.  Please register with http://openweathermap.org and create" +
+        def errMsg = new Text().setText("API Key missing.  Please register with http://openweathermap.org and create" +
           " yourself an API key.  This key must then be entered into the source code in file Utils.scala at line 19.")
-        val feErr = new FormElement().setLabel("ERROR").addField(errMsg)
-        val fcErr = new FormContainer().addFormElement(feErr)
+        def feErr = new FormElement().setLabel("ERROR").addField(errMsg)
 
-        form.addFormContainer(fcErr)
+        form.addFormContainer(new FormContainer().addFormElement(feErr))
       }
 
-      val fe4 = new FormElement().setLabel("City name").addField(cityNameInput)
-      val fe5 = new FormElement().setLabel("").addField(goBtn)
+      {
+        def fe4 = new FormElement().setLabel("City name").addField(cityNameInput)
 
-      val fc4 = new FormContainer().addFormElement(fe4)
-      val fc5 = new FormContainer().addFormElement(fe5)
+        def fe5 = new FormElement().setLabel("").addField(goBtn)
 
-      // Add contents to form and place form on the screen
-      form.
-        addFormContainer(fc4).
-        addFormContainer(fc5).
-        placeAt(weatherDivId)
+        def fc4 = new FormContainer().addFormElement(fe4)
+
+        def fc5 = new FormContainer().addFormElement(fe5)
+
+        // Add contents to form and place form on the screen
+        form
+          .addFormContainer(fc4)
+          .addFormContainer(fc5)
+          .placeAt(weatherDivId)
+      }
     })
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Build HTML weather report
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  def buildWeatherReport(report: WeatherReportBuilder, counter: Int): Grid = {
+    val weatherForm = new Form().
+      setEditable(true).
+      addStyleClass("sapUiResponsiveMargin").
+      setLayout(new GridLayout().setSingleColumn(true)).
+      setWidth("auto").
+      setTitle(s"${report.cityName}, ${report.weatherSys.country} (${formatCoords(report.coord.lat, report.coord.lon)})")
+
+    // Display weather data using disabled input fields
+    val temperatureOutput = new Input().setValue(kelvinToDegStr(report.main.temp, report.main.temp_min, report.main.temp_max)).setEnabled(false)
+    val pressureOutput1 = new Input().setValue(formatPressure(report.main.airPressure)).setEnabled(false)
+    val pressureOutput2 = new Input().setValue(formatPressure(report.main.grnd_level)).setEnabled(false)
+    val pressureOutput3 = new Input().setValue(formatPressure(report.main.sea_level)).setEnabled(false)
+
+    val humidityOutput = new Input().setValue(formatPercentage(report.main.humidity)).setEnabled(false)
+    val visibilityOutput = new Input().setValue(formatVisibility(report.visibility)).setEnabled(false)
+    val windSpeedOutput = new Input().setValue(formatVelocity(report.wind.speed)).setEnabled(false)
+    val windDirectionOutput = new Input().setValue(formatHeading(report.wind.heading)).setEnabled(false)
+    val cloudCoverOutput = new Input().setValue(formatPercentage(report.clouds)).setEnabled(false)
+
+    def fc1 = new FormContainer().addFormElement(new FormElement().setLabel("Temperature").addField(temperatureOutput))
+    val fc2 = new FormContainer()
+
+    // If ground level and sea level pressures are not available, then use the general atmospheric pressure
+    if (report.main.grnd_level == 0)
+      fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure").addField(pressureOutput1))
+    else {
+      fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure (Ground Level)").addField(pressureOutput2))
+      fc2.addFormElement(new FormElement().setLabel("Atmospheric Pressure (Sea Level)").addField(pressureOutput3))
+    }
+
+    def fc3 = new FormContainer().addFormElement(new FormElement().setLabel("Humidity").addField(humidityOutput))
+    def fc4 = new FormContainer().addFormElement(new FormElement().setLabel("Visibility").addField(visibilityOutput))
+    def fc5 = new FormContainer().addFormElement(new FormElement().setLabel("Wind Speed").addField(windSpeedOutput))
+    def fc6 = new FormContainer().addFormElement(new FormElement().setLabel("Wind Direction").addField(windDirectionOutput))
+    def fc7 = new FormContainer().addFormElement(new FormElement().setLabel("Cloud Cover").addField(cloudCoverOutput))
+
+    weatherForm.
+      addFormContainer(fc1).
+      addFormContainer(fc2).
+      addFormContainer(fc3).
+      addFormContainer(fc4).
+      addFormContainer(fc5).
+      addFormContainer(fc6).
+      addFormContainer(fc7)
+
+    def weatherGrid = new Grid().setDefaultSpan("L6 M6 S6")
+
+    def onAfterRenderingHandler = {
+      def propDescriptor = js.Dynamic.literal(
+        configurable = true,
+        enumerable = true,
+        value = SlippyMap.buildSlippyMap("mapDiv" + counter, report),
+        writable = true
+      ).asInstanceOf[js.PropertyDescriptor]
+
+      js.Object.defineProperty(new js.Object(), "onAfterRendering", propDescriptor)
+    }
+    val mapDiv = new HTML().
+      setContent("<div id=\"mapDiv" + counter + "\" style=\"float: right; width: 500px; height: 500px; margin: 1rem; margin-top: 4rem\"></div>")
+
+    mapDiv.addEventDelegate(onAfterRenderingHandler)
+    mapDiv.setLayoutData(new GridData().setSpanL(6).setSpanM(6).setSpanS(6))
+
+    weatherGrid.addContent(weatherForm).addContent(mapDiv)
   }
 }

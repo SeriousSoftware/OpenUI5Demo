@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
-//import com.sap.scala.facades.openui5.m.{GenericTileScope,Size,TileContent,GenericTileMode,LoadState,Text,FrameType}
-import com.sap.scala.facades.openui5.core.{URI,Control}
-
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
+import com.sap.scala.facades.openui5.core.{Control, URI}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.m.GenericTile")
 @js.native
@@ -56,4 +53,3 @@ class GenericTile() extends Control {
   def showActionsView(value: Boolean): Unit = js.native
   def unbindTileContent(): this.type = js.native
 }
-     

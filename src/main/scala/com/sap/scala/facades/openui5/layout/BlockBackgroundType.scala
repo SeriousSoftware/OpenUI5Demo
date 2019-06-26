@@ -43,7 +43,7 @@ object BlockBackgroundType {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown BlockBackgroundType: $s")
   }
-  
+
   object Accent extends BlockBackgroundType {
     override private[ui] def toFacade: ui.layout.BlockBackgroundType = ui.layout.BlockBackgroundType.Accent
   }

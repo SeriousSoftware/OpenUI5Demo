@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.{Link,Text}
-import com.sap.scala.facades.openui5.core.{Control,URI,MessageType}
-
+import com.sap.scala.facades.openui5.core.{Control, MessageType, URI}
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.MessageStrip")
 @js.native
@@ -33,4 +30,3 @@ class MessageStrip() extends Control {
   def setText(sText: String): this.type = js.native
   def setType(sType: MessageType): this.type = js.native
 }
-     

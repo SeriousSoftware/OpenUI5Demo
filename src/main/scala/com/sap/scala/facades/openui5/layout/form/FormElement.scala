@@ -1,13 +1,11 @@
-
 package com.sap.scala.facades.openui5.layout.form
 
+import com.sap.scala.facades.openui5.core.{Control, Element}
 import com.sap.scala.facades.openui5.m.Label
-import com.sap.scala.facades.openui5.core.{Element,Control}
-
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
+import scala.scalajs.js.|
 
 @JSGlobal("sap.ui.layout.form.FormElement")
 @js.native
@@ -28,4 +26,3 @@ class FormElement() extends Element {
   def setLabel(vLabel: Label | String): this.type = js.native
   def setVisible(bVisible: Boolean): this.type = js.native
 }
-     

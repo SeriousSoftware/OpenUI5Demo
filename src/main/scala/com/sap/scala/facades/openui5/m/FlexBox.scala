@@ -1,14 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
-//import com.sap.scala.facades.openui5.base._
+//import com.sap.scala.facades.openui5.base.{Event, EventProps}
 //import com.sap.scala.facades.openui5.m.{FlexAlignItems,FlexAlignContent,FlexWrap,BackgroundDesign,FlexJustifyContent,FlexDirection,FlexRendertype}
 import com.sap.scala.facades.openui5.core.Control
 
-
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.FlexBox")
 @js.native
@@ -46,4 +43,3 @@ class FlexBox() extends Control {
 //  def setWidth(sWidth: CSSSize): this.type = js.native
 //  def setWrap(sWrap: FlexWrap): this.type = js.native
 }
-     

@@ -1,15 +1,11 @@
-
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.DateValueProp
-import com.sap.scala.facades.openui5.base._
+import com.sap.scala.facades.openui5.base.{Event, EventProps}
 import com.sap.scala.facades.openui5.core.Element
-//import com.sap.scala.facades.openui5.unified.{DateTypeRange,CalendarLegend}
-
 
 import scala.scalajs.js
-import scala.scalajs.js.{Array, |}
-import scala.scalajs.js.annotation.{ScalaJSDefined, JSGlobal}
+import scala.scalajs.js.annotation.JSGlobal
 
 @JSGlobal("sap.m.DatePicker")
 @js.native
@@ -48,4 +44,3 @@ class DatePicker() extends InputBase with DateValueProp {
   def setValueFormat(sValueFormat: String): this.type = js.native
   def setWidth(sWidth: String): this.type = js.native
 }
-     
