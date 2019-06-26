@@ -13,7 +13,6 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 
 @JSExportTopLevel("OpenUI5Demo")
 object OpenUI5Demo {
-
   import Utils.{formatCoords, formatHeading, formatPercentage, formatPressure,
     formatVelocity, formatVisibility, isHexStr, kelvinToDegStr, owmQueryParams, weatherEndpoint}
 
