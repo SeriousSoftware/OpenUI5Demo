@@ -46,5 +46,4 @@ object GenericTileMode {
     override private[ui] def toFacade: m.GenericTileMode = m.GenericTileMode.LineMode
   }
 
-}
-*/
+}*/

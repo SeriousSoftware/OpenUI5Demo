@@ -55,5 +55,4 @@ object BlockRowColorSets {
     override private[ui] def toFacade: ui.layout.BlockRowColorSets = ui.layout.BlockRowColorSets.ColorSet4
   }
 
-}
-*/
+}*/

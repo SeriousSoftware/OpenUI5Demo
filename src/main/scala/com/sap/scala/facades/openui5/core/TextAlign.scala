@@ -48,7 +48,7 @@ object TextAlign {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown TextAlign: $s")
   }
-  
+
   object Begin extends TextAlign {
     override private[ui] def toFacade: ui.core.TextAlign = ui.core.TextAlign.Begin
   }
@@ -73,5 +73,4 @@ object TextAlign {
     override private[ui] def toFacade: ui.core.TextAlign = ui.core.TextAlign.Right
   }
 
-}
-*/
+}*/

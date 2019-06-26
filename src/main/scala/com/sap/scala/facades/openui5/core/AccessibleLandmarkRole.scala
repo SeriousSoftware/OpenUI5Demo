@@ -53,7 +53,7 @@ object AccessibleLandmarkRole {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown AccessibleLandmarkRole: $s")
   }
-  
+
   object Banner extends AccessibleLandmarkRole {
     override private[ui] def toFacade: ui.core.AccessibleLandmarkRole = ui.core.AccessibleLandmarkRole.Banner
   }
@@ -82,5 +82,4 @@ object AccessibleLandmarkRole {
     override private[ui] def toFacade: ui.core.AccessibleLandmarkRole = ui.core.AccessibleLandmarkRole.Search
   }
 
-}
-*/
+}*/

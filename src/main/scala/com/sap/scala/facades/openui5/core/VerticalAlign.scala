@@ -55,5 +55,4 @@ object VerticalAlign {
     override private[ui] def toFacade: ui.core.VerticalAlign = ui.core.VerticalAlign.Top
   }
 
-}
-*/
+}*/

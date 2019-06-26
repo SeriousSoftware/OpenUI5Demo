@@ -541,5 +541,4 @@ object AccessibleRole {
     override private[ui] def toFacade: ui.core.AccessibleRole = ui.core.AccessibleRole.TreeItem
   }
 
-}
-*/
+}*/

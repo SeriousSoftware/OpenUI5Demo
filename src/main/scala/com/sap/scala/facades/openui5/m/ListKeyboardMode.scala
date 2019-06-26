@@ -37,5 +37,4 @@ object ListKeyboardMode {
     override private[ui] def toFacade: m.ListKeyboardMode = m.ListKeyboardMode.Navigation
   }
 
-}
-*/
+}*/

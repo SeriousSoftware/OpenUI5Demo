@@ -73,5 +73,4 @@ object Size {
     override private[ui] def toFacade: m.Size = m.Size.XS
   }
 
-}
-*/
+}*/

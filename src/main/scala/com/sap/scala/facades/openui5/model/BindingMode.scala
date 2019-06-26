@@ -55,5 +55,4 @@ object BindingMode {
     override private[ui] def toFacade: ui.model.BindingMode = ui.model.BindingMode.TwoWay
   }
 
-}
-*/
+}*/

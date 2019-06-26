@@ -1,6 +1,6 @@
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.base.{Event, EventProps}
+import com.sap.scala.facades.openui5.base.EventProps
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

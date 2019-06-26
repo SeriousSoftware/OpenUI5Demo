@@ -73,5 +73,4 @@ object ListMode {
     override private[ui] def toFacade: m.ListMode = m.ListMode.SingleSelectMaster
   }
 
-}
-*/
+}*/

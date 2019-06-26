@@ -37,5 +37,4 @@ object ListGrowingDirection {
     override private[ui] def toFacade: m.ListGrowingDirection = m.ListGrowingDirection.Upwards
   }
 
-}
-*/
+}*/

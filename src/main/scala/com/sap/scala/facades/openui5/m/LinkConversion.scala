@@ -46,5 +46,4 @@ object LinkConversion {
     override private[ui] def toFacade: m.LinkConversion = m.LinkConversion.ProtocolOnly
   }
 
-}
-*/
+}*/

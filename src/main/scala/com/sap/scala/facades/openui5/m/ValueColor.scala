@@ -55,5 +55,4 @@ object ValueColor {
     override private[ui] def toFacade: m.ValueColor = m.ValueColor.Neutral
   }
 
-}
-*/
+}*/

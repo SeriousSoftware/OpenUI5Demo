@@ -55,5 +55,4 @@ object Wrapping {
     override private[ui] def toFacade: ui.core.Wrapping = ui.core.Wrapping.Soft
   }
 
-}
-*/
+}*/

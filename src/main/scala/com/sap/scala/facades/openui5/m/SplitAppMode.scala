@@ -55,5 +55,4 @@ object SplitAppMode {
     override private[ui] def toFacade: m.SplitAppMode = m.SplitAppMode.StretchCompressMode
   }
 
-}
-*/
+}*/

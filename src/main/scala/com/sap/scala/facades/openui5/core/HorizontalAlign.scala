@@ -43,7 +43,7 @@ object HorizontalAlign {
    case _ =>
      throw new UnsupportedOperationException(s"Unknown HorizontalAlign: $s")
   }
-  
+
   object Begin extends HorizontalAlign {
     override private[ui] def toFacade: ui.core.HorizontalAlign = ui.core.HorizontalAlign.Begin
   }
@@ -64,5 +64,4 @@ object HorizontalAlign {
     override private[ui] def toFacade: ui.core.HorizontalAlign = ui.core.HorizontalAlign.Right
   }
 
-}
-*/
+}*/

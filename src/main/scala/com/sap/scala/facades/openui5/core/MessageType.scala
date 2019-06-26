@@ -64,5 +64,4 @@ object MessageType {
     override private[ui] def toFacade: ui.core.MessageType = ui.core.MessageType.Warning
   }
 
-}
-*/
+}*/

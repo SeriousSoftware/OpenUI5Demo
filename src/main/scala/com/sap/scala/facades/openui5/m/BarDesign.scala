@@ -55,5 +55,4 @@ object BarDesign {
     override private[ui] def toFacade: m.BarDesign = m.BarDesign.SubHeader
   }
 
-}
-*/
+}*/

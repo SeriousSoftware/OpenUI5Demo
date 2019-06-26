@@ -1,4 +1,3 @@
-
 package com.sap.scala.facades.openui5.core
 
 import com.sap.scala.facades.openui5.base.BaseObject

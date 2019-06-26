@@ -55,5 +55,4 @@ object ValueState {
     override private[ui] def toFacade: ui.core.ValueState = ui.core.ValueState.Warning
   }
 
-}
-*/
+}*/

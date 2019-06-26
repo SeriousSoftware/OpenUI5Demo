@@ -55,5 +55,4 @@ object PageBackgroundDesign {
     override private[ui] def toFacade: m.PageBackgroundDesign = m.PageBackgroundDesign.Transparent
   }
 
-}
-*/
+}*/

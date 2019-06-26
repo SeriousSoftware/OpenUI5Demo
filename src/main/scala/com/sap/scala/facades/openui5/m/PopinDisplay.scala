@@ -46,5 +46,4 @@ object PopinDisplay {
     override private[ui] def toFacade: m.PopinDisplay = m.PopinDisplay.WithoutHeader
   }
 
-}
-*/
+}*/

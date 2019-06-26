@@ -55,5 +55,4 @@ object LoadState {
     override private[ui] def toFacade: m.LoadState = m.LoadState.Loading
   }
 
-}
-*/
+}*/

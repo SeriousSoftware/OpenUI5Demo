@@ -46,5 +46,4 @@ object TextDirection {
     override private[ui] def toFacade: ui.core.TextDirection = ui.core.TextDirection.RTL
   }
 
-}
-*/
+}*/

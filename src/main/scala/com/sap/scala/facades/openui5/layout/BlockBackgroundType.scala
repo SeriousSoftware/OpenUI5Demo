@@ -64,5 +64,4 @@ object BlockBackgroundType {
     override private[ui] def toFacade: ui.layout.BlockBackgroundType = ui.layout.BlockBackgroundType.Mixed
   }
 
-}
-*/
+}*/

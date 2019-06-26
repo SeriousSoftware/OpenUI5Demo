@@ -55,5 +55,4 @@ object FrameType {
     override private[ui] def toFacade: m.FrameType = m.FrameType.TwoThirds
   }
 
-}
-*/
+}*/

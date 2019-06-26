@@ -64,5 +64,4 @@ object ListType {
     override private[ui] def toFacade: m.ListType = m.ListType.Navigation
   }
 
-}
-*/
+}*/

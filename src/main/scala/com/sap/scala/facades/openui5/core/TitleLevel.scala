@@ -82,5 +82,4 @@ object TitleLevel {
     override private[ui] def toFacade: ui.core.TitleLevel = ui.core.TitleLevel.H6
   }
 
-}
-*/
+}*/

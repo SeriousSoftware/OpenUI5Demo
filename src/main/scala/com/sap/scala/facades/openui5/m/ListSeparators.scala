@@ -46,5 +46,4 @@ object ListSeparators {
     override private[ui] def toFacade: m.ListSeparators = m.ListSeparators.None
   }
 
-}
-*/
+}*/

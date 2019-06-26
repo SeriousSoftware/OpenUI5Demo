@@ -46,5 +46,4 @@ object GridPosition {
     override private[ui] def toFacade: ui.layout.GridPosition = ui.layout.GridPosition.Right
   }
 
-}
-*/
+}*/

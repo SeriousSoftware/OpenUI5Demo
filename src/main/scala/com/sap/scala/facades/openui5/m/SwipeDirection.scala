@@ -46,5 +46,4 @@ object SwipeDirection {
     override private[ui] def toFacade: m.SwipeDirection = m.SwipeDirection.RightToLeft
   }
 
-}
-*/
+}*/
