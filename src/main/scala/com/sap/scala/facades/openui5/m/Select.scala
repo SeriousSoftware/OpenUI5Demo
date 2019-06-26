@@ -1,8 +1,7 @@
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
-//import com.sap.scala.facades.openui5.m.{Popover,SelectType,Dialog}
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.core.{CSSSize, Control, ID, Item, TextAlign, TextDirection, URI, ValueState}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

@@ -1,6 +1,6 @@
 package com.sap.scala.facades.openui5.layout.form
 
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.core.{CSSSize, Control, Title}
 import com.sap.scala.facades.openui5.m.Toolbar
 
 import scala.scalajs.js

@@ -1,8 +1,7 @@
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
-//import com.sap.scala.facades.openui5.m.Label
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.core.{CSSSize, Control, TextAlign ,ID, TextDirection, ValueState}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

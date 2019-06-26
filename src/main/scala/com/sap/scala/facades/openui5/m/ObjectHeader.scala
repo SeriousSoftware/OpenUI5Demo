@@ -1,8 +1,7 @@
 package com.sap.scala.facades.openui5.m
 
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
-//import com.sap.scala.facades.openui5.m.{ObjectNumber,ObjectHeaderContainer,ObjectStatus,BackgroundDesign,ObjectMarker,ObjectAttribute}
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.core.{BackgroundDesign, TitleLevel, URI, Control, ID, TextDirection, ValueState}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

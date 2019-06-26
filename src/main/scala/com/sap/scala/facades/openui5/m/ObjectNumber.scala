@@ -1,6 +1,6 @@
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.core.{Control, ID, TextAlign, TextDirection, ValueState}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

@@ -1,7 +1,7 @@
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5._
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.{EditableProp, EnabledProp, NameProp, PlaceholderProp, StringValueProp}
+import com.sap.scala.facades.openui5.core.{Control, ValueState}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

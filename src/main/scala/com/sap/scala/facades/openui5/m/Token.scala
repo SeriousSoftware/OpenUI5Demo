@@ -1,8 +1,8 @@
 package com.sap.scala.facades.openui5.m
 
-import com.sap.scala.facades.openui5._
+import com.sap.scala.facades.openui5.{EditableProp, SelectedProp, TextProp}
 import com.sap.scala.facades.openui5.base.{Event, EventProps}
-import com.sap.scala.facades.openui5.core._
+import com.sap.scala.facades.openui5.core.{Control, ID, TextDirection}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

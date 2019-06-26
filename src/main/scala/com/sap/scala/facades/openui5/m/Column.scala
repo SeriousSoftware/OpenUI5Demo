@@ -1,6 +1,6 @@
 package com.sap.scala.facades.openui5.m
-//import com.sap.scala.facades.openui5.m.PopinDisplay
-import com.sap.scala.facades.openui5.core._
+
+import com.sap.scala.facades.openui5.core.{CSSSize, Control, Element, TextAlign, VerticalAlign}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

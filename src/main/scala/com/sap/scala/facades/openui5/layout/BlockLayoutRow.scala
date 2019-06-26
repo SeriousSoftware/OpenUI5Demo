@@ -1,9 +1,6 @@
 package com.sap.scala.facades.openui5.layout
 
-//import com.sap.scala.facades.openui5.base.{Event, EventProps}
-import com.sap.scala.facades.openui5.core._
-//import com.sap.scala.facades.openui5.layout.{BlockRowColorSets,BlockLayoutCell}
-
+import com.sap.scala.facades.openui5.core.{Control, ID}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal
