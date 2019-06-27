@@ -5,6 +5,7 @@ import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.literal
+import scala.scalajs.js.annotation.JSGlobal
 import scala.scalajs.js.|
 
 trait SCOptionSetter[T <: js.Object, B <: SCOptionBuilder[T, _]] extends JSOptionSetter[T,B]{
@@ -17,6 +18,7 @@ abstract class SCOptionBuilder[T <: js.Object, B <: SCOptionBuilder[T, _]](copy:
   }
 }
 
+@JSGlobal
 @js.native
 object L extends js.Object {
   def map(id: String, options: LMapOptions= ???): LMap = js.native

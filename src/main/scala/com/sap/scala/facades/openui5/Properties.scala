@@ -5,7 +5,6 @@ import com.sap.scala.facades.openui5.core.{Item, URI}
 import com.sap.scala.facades.openui5.m.ColumnListItem
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
 
 @js.native
 trait TextProp extends core.Element {
@@ -130,7 +129,6 @@ trait DateValueEventProps extends StringValueEventProps{
   def valid : Boolean = js.native
 }
 
-@ScalaJSDefined
 //@PropsCompanionObject
 trait FireSelectProps extends js.Object {
   val selected: Boolean

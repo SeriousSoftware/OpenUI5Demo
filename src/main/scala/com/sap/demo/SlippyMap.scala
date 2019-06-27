@@ -1,7 +1,7 @@
 package com.sap.demo
 
 import com.felstar.scalajs.leaflet.{L, LMapOptions, MarkerOptions, TileLayerOptions}
-import com.sap.demo.Utils.{mapBoxEndpoint, mbQueryParams}
+import com.sap.demo.Utils.{mapBoxBaseURL, mbQueryParams}
 
 import scala.scalajs.js.annotation.JSExport
 
@@ -22,16 +22,15 @@ object SlippyMap {
         yield s"$p=${mbQueryParams(p)}"
         ).mkString("?", "&", "")
 
-      val tileLayer = L.tileLayer(
-        mapBoxEndpoint.concat(queryStr),
-        TileLayerOptions
-          .id("mapbox.streets")
+      def tileLayer = {
+        L.tileLayer(mapBoxBaseURL.concat(queryStr),
+        TileLayerOptions.id("mapbox.streets")
           .maxZoom(19)
           .attribution(
             """Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
               |<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,
               |Imagery © <a href="http://mapbox.com">Mapbox</a>""".stripMargin)
-      )
+      )}
 
       tileLayer.addTo(map)
 

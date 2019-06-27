@@ -15,16 +15,15 @@ object Utils {
     "access_token" -> "pk.eyJ1IjoiZmFuY2VsbHUiLCJhIjoiY2oxMHRzZm5zMDAyMDMycndyaTZyYnp6NSJ9.AJ3owakJtFAJaaRuYB7Ukw"
   )
 
-  // OpenWeather endpoint details
-  def weatherEndpoint = {
+  // OpenWeatherMap endpoint details
+  def weatherBaseURL = {
     def openWeatherMapHost = "openweathermap.org"
-
     def openWeatherMapAPI = "https://api.".concat(openWeatherMapHost)
 
     openWeatherMapAPI.concat("/data/2.5/weather")
   }
 
-  def mapBoxEndpoint = {
+  def mapBoxBaseURL = {
     def mapBoxHost = "https://api.tiles.mapbox.com"
 
     mapBoxHost.concat("/v4/{id}/{z}/{x}/{y}.png")

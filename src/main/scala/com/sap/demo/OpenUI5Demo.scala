@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 @JSExportTopLevel("OpenUI5Demo")
 object OpenUI5Demo {
   import Utils.{formatCoords, formatHeading, formatPercentage, formatPressure,
-    formatVelocity, formatVisibility, isHexStr, kelvinToDegStr, owmQueryParams, weatherEndpoint}
+    formatVelocity, formatVisibility, isHexStr, kelvinToDegStr, owmQueryParams, weatherBaseURL}
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // Main program
@@ -72,7 +72,7 @@ object OpenUI5Demo {
             def queryStr = owmQueryParams.map { case (k, v) => s"$k=$v" }.mkString("?", "&", "")
 
             val xhr = new dom.XMLHttpRequest
-            xhr.open("GET", weatherEndpoint.concat(queryStr))
+            xhr.open("GET", weatherBaseURL.concat(queryStr))
 
             xhr.onload = (_: dom.Event) => {
               val data = js.JSON.parse(xhr.responseText)
@@ -97,7 +97,7 @@ object OpenUI5Demo {
               }
             }
 
-            // Send XHR request to OpenWeather
+            // Send XHR request to OpenWeatherMap
             xhr.send()
           }
 

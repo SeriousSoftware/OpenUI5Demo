@@ -1,7 +1,7 @@
 package com.sap.scala.facades.openui5.core.format
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
+import scala.scalajs.js.annotation.JSGlobal
 
 /**
   * Wrapper for https://sapui5.hana.ondemand.com/#docs/api/symbols/sap.ui.core.format.DateFormat.html
@@ -22,7 +22,6 @@ object DateFormat extends js.Object {
   def getTimeInstance(formatOptions: DateFormatOptions): DateFormat = js.native
 }
 
-@ScalaJSDefined
 trait DateFormatOptions extends js.Object {
   val pattern: js.UndefOr[String] = js.undefined
   val style: js.UndefOr[String] = js.undefined
